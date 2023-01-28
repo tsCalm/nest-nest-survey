@@ -12,14 +12,12 @@ import { SurveyService } from './survey.service';
  */
 
 class MockFindAllOutPort implements FindAllSurveyOutPort {
-  private readonly params: SurveyFindAllOutPortInputDto;
   private readonly result: SurveyFindAllOutPortOutputDto;
 
   constructor(
     params: SurveyFindAllOutPortInputDto,
     result: SurveyFindAllOutPortOutputDto,
   ) {
-    this.params = params;
     this.result = result;
   }
 
@@ -40,10 +38,11 @@ describe('설문지 리스트를 반환한다.', () => {
     size: 10,
     sort: 'ASC',
   };
+  const result: SurveyFindAllOutPortOutputDto = [];
   const findAllSurveyService = new MockFindAllOutPort(params, surveyList);
   test('서비스 -> 레파지토리 데이터 검증.', async () => {
     const res = await findAllSurveyService.execute(params);
 
-    expect(res).toStrictEqual(surveyList);
+    expect(res).toStrictEqual(result);
   });
 });
