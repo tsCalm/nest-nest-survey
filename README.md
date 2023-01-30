@@ -35,3 +35,15 @@ old-nest-survey의 개선 버전
 ## TypeOrm 최적화 계획
 
 1. 엔티티를 업데이트할 때 typeorm 의 save 보다는 update 메서드를 사용한다.
+
+## 구현 순서
+
+1. git-actions를 통한 CI 구현
+2. AWS-EC2 서버와 github를 연결한 CD구현
+3. certbot을 통한 https 설정, cron 명령을 통한 인증서 자동갱신까지 기록하기
+4. ERD 다시 고민하고 구현하기
+5. join 관계를 고려하지 않은 Entity 선언
+6. 각 모듈별 유닛 테스트 케이스 계획( fail )
+7. 테스트 케이스를 통과할 수 있도록 최소한으로 구현
+8. 엔티티 join관계 설정 및 리펙토링
+9. 스웨거 문서 만들기
