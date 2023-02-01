@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import envFile from './env.config';
-import { typeOrmConfigAsync } from './typeorm.config';
-
+// import { typeOrmConfigAsync } from './typeorm.config';
+//  TypeOrmModule.forRootAsync(typeOrmConfigAsync)
 @Module({
-  imports: [envFile, TypeOrmModule.forRootAsync(typeOrmConfigAsync)],
+  imports: [envFile],
 })
 export class ConfigModule {}
