@@ -36,7 +36,7 @@ old-nest-survey의 개선 버전
 
 1. 엔티티를 업데이트할 때 typeorm 의 save 보다는 update 메서드를 사용한다.
 
-## 구현 순서
+## 프로젝트 진행
 
 1. git-actions를 통한 CI 구현
 2. AWS-EC2 서버와 github를 연결한 CD구현
