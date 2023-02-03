@@ -1,18 +1,63 @@
-name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push]
+name: Deploy NestJS Application
+
+# main 브랜치로 push 혹은 pr이 날라와서 merge되면 workflow가 작동합니다.
+# workflow_dispatch는 수동으로 workflow를 작동시키도록 할 수 있도록 합니다.
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+  workflow_dispatch:
+
+env:
+  S3_BUCKET_NAME: new-nest-survey
+  PROJECT_NAME: new-nest-survey
+  AWS_CODEDEPLOY_APPLICATION_NAME: new-nest-survey
+  AWS_CODEDEPLOY_DEPLOYMENT_GROUP_NAME: new-nest-survey-group
+
 jobs:
-  Explore-GitHub-Actions:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-      - name: Check out repository code
-        uses: actions/checkout@v3
-      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-      - name: List files in the repository
-        run: |
-          ls ${{ github.workspace }}
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+      # 해당 workflow가 레포지토리에 접근할 수 있도록 해줍니다.
+      # 우리는 레포지토리의 소스를 빌드해야하기 때문에 이 액션을 사용해야합니다.
+      - name: Checkout Repository
+        uses: actions/checkout@v2.4.2
+
+      # 16.19.0 버전의 NodeJS를 세팅해줍니다.
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3.4.1
+        with:
+          node-version: 16.19.0
+
+      # Dependency들을 설치합니다. yarn도 사용 가능합니다.
+      - name: Install Dependencies
+        run: npm install
+
+      # NestJS Application을 빌드합니다.
+      - name: Build a Nest Application
+        run: npm run build
+        shell: bash
+
+      # 레포지토리를 압축시킵니다.
+      # 다만 불필요한 node_module, coverage, src, test, readme, .git* 등의 파일은 제외시킵니다.
+      - name: Make a zip file
+        run: zip -r ./$GITHUB_SHA.zip . -x "node_modules/*" "coverage/*" "src/*" "test/*" "README.md" "*.git*"
+        shell: bash
+      # 위에서 생성한 IAM 사용자 정보를 넣어 자격 증명을 수행합니다.
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      # 위에서 만든 zip 파일을 S3에 업로드 합니다.
+      - name: Upload to S3
+        run: aws s3 cp --region ${{ secrets.AWS_REGION }} ./$GITHUB_SHA.zip s3://$S3_BUCKET_NAME/$PROJECT_NAME/$GITHUB_SHA.zip
+
+      # CodeDeploy에게 deployment를 생성하도록 요청합니다.
+      - name: Request Deployment
+        run: aws deploy create-deployment --application-name $AWS_CODEDEPLOY_APPLICATION_NAME --deployment-config-name CodeDeployDefault.AllAtOnce --deployment-group-name $AWS_CODEDEPLOY_DEPLOYMENT_GROUP_NAME --s3-location bucket=$S3_BUCKET_NAME,bundleType=zip,key=$PROJECT_NAME/$GITHUB_SHA.zip
