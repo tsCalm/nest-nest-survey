@@ -47,22 +47,21 @@ jobs:
         run: zip -r ./$GITHUB_SHA.zip . -x "node_modules/*" "coverage/*" "src/*" "test/*" "README.md" "*.git*"
         shell: bash
 
-  -deploy:
-    name: BeanStalk Deploy
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: ['16.x']
-    needs: build
-    steps:
-      # 위에서 생성한 IAM 사용자 정보를 넣어 자격 증명을 수행합니다.
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_REGION }}
+    deploy:
+      runs-on: ubuntu-latest
+      strategy:
+        matrix:
+          node-version: ['16.x']
+      needs: build
+      steps:
+        # 위에서 생성한 IAM 사용자 정보를 넣어 자격 증명을 수행합니다.
+        - name: Configure AWS credentials
+          uses: aws-actions/configure-aws-credentials@v1
+          with:
+            aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            aws-region: ${{ secrets.AWS_REGION }}
 
-      # 위에서 만든 zip 파일을 S3에 업로드 합니다.
-      - name: Upload to S3
-        run: aws s3 cp --region ${{ secrets.AWS_REGION }} ./$GITHUB_SHA.zip s3://$S3_BUCKET_NAME/$PROJECT_NAME/$GITHUB_SHA.zip
+        # 위에서 만든 zip 파일을 S3에 업로드 합니다.
+        - name: Upload to S3
+          run: aws s3 cp --region ${{ secrets.AWS_REGION }} ./$GITHUB_SHA.zip s3://$S3_BUCKET_NAME/$PROJECT_NAME/$GITHUB_SHA.zip
