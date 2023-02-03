@@ -13,7 +13,7 @@ on:
 env:
   S3_BUCKET_NAME: new-nest-survey
   PROJECT_NAME: new-nest-survey
-  AWS_CODEDEPLOY_APPLICATION_NAME: new-nest-survey
+  AWS_CODEDEPLOY_APPLICATION_NAME: new-new-survey
   AWS_CODEDEPLOY_DEPLOYMENT_GROUP_NAME: new-nest-survey-group
 
 jobs:
