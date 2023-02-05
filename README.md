@@ -38,11 +38,9 @@ old-nest-survey의 개선 버전
 
 ## 프로젝트 진행
 
-1. git-actions 연결
+1. github workflow 생성[바로가기](https://hssm93.tistory.com/entry/NestJs-%EC%84%A4%EB%AC%B8%EC%A1%B0%EC%82%AC-%EB%AF%B8%EB%8B%88-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-1)
 
-- workflow 생성 [바로가기](https://hssm93.tistory.com/entry/NestJs-%EC%84%A4%EB%AC%B8%EC%A1%B0%EC%82%AC-%EB%AF%B8%EB%8B%88-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-1)
-
-2. AWS-EC2 서버와 github를 연결한 CD구현
+2. AWS-EC2 & git actions를 활용한 CI/CD구현
 
 - aws ec2 인스턴스 생성 [바로가기](https://hssm93.tistory.com/entry/NestJs-%EC%84%A4%EB%AC%B8%EC%A1%B0%EC%82%AC-%EB%AF%B8%EB%8B%88-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-2-AWS-EC2-%EC%83%9D%EC%84%B1)
 - aws ec2 인스턴스 접속 [바로가기](https://hssm93.tistory.com/entry/NestJs-%EC%84%A4%EB%AC%B8%EC%A1%B0%EC%82%AC-%EB%AF%B8%EB%8B%88-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-2-AWS-EC2-%EC%A0%91%EC%86%8D-%EB%B0%8F-%EB%B0%B0%ED%8F%AC)
@@ -51,6 +49,8 @@ old-nest-survey의 개선 버전
 - aws ec2 인스턴스 도메인 연결 & nginx 리버스 프록시 설정 [바로가기](https://hssm93.tistory.com/entry/NestJs-%EC%84%A4%EB%AC%B8%EC%A1%B0%EC%82%AC-%EB%AF%B8%EB%8B%88-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-4-AWS-EC2-%EB%B0%B0%ED%8F%AC-%EB%8F%84%EB%A9%94%EC%9D%B8)
 
 - git actions를 통한 빌드 파일 s3 자동 업로드 [바로가기](https://hssm93.tistory.com/entry/NestJs-%EC%84%A4%EB%AC%B8%EC%A1%B0%EC%82%AC-%EB%AF%B8%EB%8B%88-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-4-AWS-EC2-%EB%B0%B0%ED%8F%AC-%EC%9E%90%EB%8F%99%EB%B0%B0%ED%8F%AC)
+
+- aws code-deploy & pm2 & nginx를 사용한 자동배포 [바로가기](https://hssm93.tistory.com/entry/NestJs-%EC%84%A4%EB%AC%B8%EC%A1%B0%EC%82%AC-%EB%AF%B8%EB%8B%88-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-4-AWS-EC2-%EB%B0%B0%ED%8F%AC-%EC%9E%90%EB%8F%99%EB%B0%B0%ED%8F%AC-2)
 
 3. certbot을 통한 https 설정, cron 명령을 통한 인증서 자동갱신까지 기록하기
 4. ERD 다시 고민하고 구현하기

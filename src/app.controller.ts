@@ -7,6 +7,6 @@ export class AppController {
 
   @Get()
   getHello(): string {
-    return 'ci/cd test';
+    return '0.0.0';
   }
 }
