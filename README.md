@@ -10,6 +10,10 @@ old-nest-survey의 개선 버전
 - mysql version: mysql Ver 8.0.31 for macos12.6 on arm64 (Homebrew)
 - nest-cli version: 9.1.8
 
+## 인프라
+
+<img width="550" alt="스크린샷 2023-02-07 오후 5 51 26" src="https://user-images.githubusercontent.com/106916440/217197790-8e129e87-d388-48c8-b49a-6bf5adfe4dc4.png">
+
 ## 단위 테스트 계획 (개발자 [향로](https://jojoldu.tistory.com/category/%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%BD%94%EB%93%9C)님 블로그를 참고해서 계획)
 
 - 규칙
