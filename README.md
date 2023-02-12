@@ -58,8 +58,8 @@ old-nest-survey의 개선 버전
 
 3. AWS Certificate Manager, Route 53을 사용한 https 적용 [바로가기](https://hssm93.tistory.com/entry/10-NestJs-%EC%84%A4%EB%AC%B8%EC%A1%B0%EC%82%AC-%EB%AF%B8%EB%8B%88-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-AWS-EC2-%EB%B0%B0%ED%8F%AC-https)
 
-4. ERD 다시 고민하고 구현하기
-5. join 관계를 고려하지 않은 Entity 선언
+4. ERD 다시 고민하고 설계하기
+5. Entity 선언
 6. 각 모듈별 유닛 테스트 케이스 계획( fail )
 7. 테스트 케이스를 통과할 수 있도록 최소한으로 구현
 8. 엔티티 join관계 설정 및 리펙토링
