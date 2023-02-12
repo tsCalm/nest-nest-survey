@@ -6,6 +6,8 @@ export type SurveyFindAllOutPortInputDto = {
 
 export type SurveyFindAllOutPortOutputDto = Array<{
   id: number;
+  name: string;
+  description: string;
 }>;
 
 export interface FindAllSurveyOutPort {
