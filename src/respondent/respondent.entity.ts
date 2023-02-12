@@ -5,10 +5,10 @@ export class Respondent {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({ comment: '참여자 이름' })
   name: string;
 
-  @Column()
+  @Column({ comment: '참여자 이메일' })
   email: string;
 
   @OneToMany((type) => Response, (response) => response.respondent)

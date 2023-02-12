@@ -14,6 +14,10 @@ old-nest-survey의 개선 버전
 
 <img width="550" alt="스크린샷 2023-02-07 오후 5 51 26" src="https://user-images.githubusercontent.com/106916440/217197790-8e129e87-d388-48c8-b49a-6bf5adfe4dc4.png">
 
+## ERD
+
+<img width="750" alt="스크린샷 2023-02-12 오후 2 44 18" src="https://user-images.githubusercontent.com/106916440/218295150-2796fb17-047c-4f6e-b588-0b1f46a8b85a.png">
+
 ## 단위 테스트 계획 (개발자 [향로](https://jojoldu.tistory.com/category/%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%BD%94%EB%93%9C)님 블로그를 참고해서 계획)
 
 - 규칙
@@ -63,4 +67,7 @@ old-nest-survey의 개선 버전
 6. 각 모듈별 유닛 테스트 케이스 계획( fail )
 7. 테스트 케이스를 통과할 수 있도록 최소한으로 구현
 8. 엔티티 join관계 설정 및 리펙토링
-9. 스웨거 문서 만들기
+9. mock 데이터 10만개 넣어보기
+10. 성능 테스트, 부하테스트 진행하고 문서화하기
+11. 배포 테스트 진행하기
+12. 스웨거 문서 만들기

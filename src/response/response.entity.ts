@@ -7,11 +7,8 @@ export class Response {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({ type: 'varchar', comment: '유저 응답' })
   answer: string;
-
-  @Column()
-  comment: string;
 
   @ManyToOne((type) => Question, (question) => question.responses)
   question: Question;
