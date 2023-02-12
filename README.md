@@ -16,7 +16,7 @@ old-nest-survey의 개선 버전
 
 ## ERD
 
-<img width="750" alt="스크린샷 2023-02-12 오후 2 44 18" src="https://user-images.githubusercontent.com/106916440/218295150-2796fb17-047c-4f6e-b588-0b1f46a8b85a.png">
+<img width="875" alt="스크린샷 2023-02-12 오후 7 54 55" src="https://user-images.githubusercontent.com/106916440/218306824-7198eb98-9a6c-4eda-9180-829d96616520.png">
 
 ## 단위 테스트 계획 (개발자 [향로](https://jojoldu.tistory.com/category/%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%BD%94%EB%93%9C)님 블로그를 참고해서 계획)
 

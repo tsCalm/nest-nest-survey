@@ -1,13 +1,5 @@
-import { Survey } from '../survey/survey.entity';
-import {
-  Column,
-  Entity,
-  ManyToOne,
-  OneToMany,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
-import { Response } from '../response/response.entity';
 import { Question } from 'src/question/question.entity';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Option {

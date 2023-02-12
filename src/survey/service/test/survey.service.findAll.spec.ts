@@ -3,8 +3,8 @@ import {
   FindAllSurveyOutPort,
   SurveyFindAllOutPortInputDto,
   SurveyFindAllOutPortOutputDto,
-} from '../out-port/survey-findall.op';
-import { SurveyService } from './survey.service';
+} from '../../out-port/survey-findall.op';
+import { SurveyService } from '../survey.service';
 
 /**
  * 1. 테스트하기 위한 interface부터 생각하기
