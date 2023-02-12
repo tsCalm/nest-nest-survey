@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { SurveyController } from './survey.ctrl';
-import { SurveyService } from './service/survey.service.ts/survey.service';
+import { SurveyService } from './service/survey.service';
 
 @Module({
   controllers: [SurveyController],

@@ -3,7 +3,7 @@ import {
   FindAllSurveyOutPort,
   SurveyFindAllOutPortInputDto,
   SurveyFindAllOutPortOutputDto,
-} from 'src/survey/out-port/survey-findall.op';
+} from '../out-port/survey-findall.op';
 import { SurveyService } from './survey.service';
 
 /**
