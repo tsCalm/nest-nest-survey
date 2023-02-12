@@ -26,7 +26,7 @@ export class Question {
   @ManyToOne((type) => Survey, (survey) => survey.questions)
   survey: Survey;
 
-  @ManyToOne((type) => Option, (option) => option.question)
+  @OneToMany((type) => Option, (option) => option.question)
   option: Option;
 
   @OneToMany((type) => Response, (response) => response.question)

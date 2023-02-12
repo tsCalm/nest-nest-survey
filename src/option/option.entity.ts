@@ -20,6 +20,6 @@ export class Option {
   @Column({ type: 'varchar', comment: '보기' })
   text: string;
 
-  @OneToMany((type) => Question, (opt) => opt.option)
+  @ManyToOne((type) => Question, (opt) => opt.option)
   question: Question;
 }
