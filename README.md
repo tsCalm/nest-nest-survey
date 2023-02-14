@@ -62,12 +62,13 @@ old-nest-survey의 개선 버전
 
 3. AWS Certificate Manager, Route 53을 사용한 https 적용 [바로가기](https://hssm93.tistory.com/entry/10-NestJs-%EC%84%A4%EB%AC%B8%EC%A1%B0%EC%82%AC-%EB%AF%B8%EB%8B%88-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-AWS-EC2-%EB%B0%B0%ED%8F%AC-https)
 
-4. ERD 다시 고민하고 설계하기
-5. Entity 선언
-6. 각 모듈별 유닛 테스트 케이스 계획( fail )
-7. 테스트 케이스를 통과할 수 있도록 최소한으로 구현
-8. 엔티티 join관계 설정 및 리펙토링
-9. mock 데이터 10만개 넣어보기
-10. 성능 테스트, 부하테스트 진행하고 문서화하기
-11. 배포 테스트 진행하기
-12. 스웨거 문서 만들기
+4. ERD & Entity [바로가기](https://hssm93.tistory.com/entry/11-NestJs-%EC%84%A4%EB%AC%B8%EC%A1%B0%EC%82%AC-%EB%AF%B8%EB%8B%88-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%97%94%ED%8B%B0%ED%8B%B0-%EB%A7%8C%EB%93%A4%EA%B8%B0)
+5. 각 모듈별 유닛 테스트 케이스 계획
+
+- type, interface, service 선언하기 [바로가기](https://hssm93.tistory.com/entry/11-NestJs-%EC%84%A4%EB%AC%B8%EC%A1%B0%EC%82%AC-%EB%AF%B8%EB%8B%88-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-TDD-%EC%B2%AB%EA%B2%BD%ED%97%98)
+
+6. 테스트 케이스를 통과할 수 있도록 최소한으로 구현
+7. mock 데이터 10만개 넣어보기
+8. 성능 테스트, 부하테스트 진행하고 문서화하기
+9. 배포 테스트 진행하기
+10. 스웨거 문서 만들기
