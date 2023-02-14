@@ -1,5 +1,4 @@
 import {
-  FindOneSurveyOutPort,
   SurveyFindOneOutPortInputDto,
   SurveyFindOneOutPortOutputDto,
 } from '../../out-port/survey-findone.op';
@@ -23,17 +22,17 @@ import { SurveyFindOneService } from '../survey-findone.service';
 // }
 
 describe('설문지 상세정보를 반환한다.', () => {
-  const surveyObj: SurveyFindOneOutPortOutputDto = {
+  const survey: SurveyFindOneOutPortOutputDto = {
     id: 1,
     name: 'test-survey',
     description: 'test-desc',
   };
   const params: SurveyFindOneOutPortInputDto = 1;
   const findAllSurveyService = new SurveyFindOneService();
-  // new MockFindAllOutPort(params, surveyObj);
+  // new MockFindAllOutPort(params, survey);
   test('설문지 상세', async () => {
-    const res = await findAllSurveyService.execute(params);
+    const findoneResult = await findAllSurveyService.execute(params);
 
-    expect(res).toStrictEqual(surveyObj);
+    expect(findoneResult).toStrictEqual(survey);
   });
 });

@@ -1,8 +1,4 @@
-import {
-  SurveyUpdateOutPortInputDto,
-  SurveyUpdateOutPortOutputDto,
-  UpdateSurveyOutPort,
-} from '../../out-port/survey-update.op';
+import { SurveyUpdateOutPortOutputDto } from '../../out-port/survey-update.op';
 import { SurveyUpdateService } from '../survey-update.service';
 
 // class MockUpdateOutPort implements UpdateSurveyOutPort {
@@ -20,20 +16,20 @@ import { SurveyUpdateService } from '../survey-update.service';
 // }
 
 describe('설문지 업데이트', () => {
-  const surveyObj: SurveyUpdateOutPortOutputDto = {
+  const survey: SurveyUpdateOutPortOutputDto = {
     id: 1,
     name: 'test-survey',
     description: 'test-desc',
   };
 
   const UpdateSurveyService = new SurveyUpdateService();
-  // new MockUpdateOutPort(surveyObj);
+  // new MockUpdateOutPort(survey);
   test('설문지 이름', async () => {
-    const res = await UpdateSurveyService.execute({
+    const nameUpdateResult = await UpdateSurveyService.execute({
       name: 'update-test-survey',
     });
 
-    expect(res).toStrictEqual({
+    expect(nameUpdateResult).toStrictEqual({
       id: 1,
       name: 'update-test-survey',
       description: 'test-desc',
@@ -41,10 +37,14 @@ describe('설문지 업데이트', () => {
   });
 
   test('설문지 설명', async () => {
-    const res = await UpdateSurveyService.execute({
+    const descUpdateResult = await UpdateSurveyService.execute({
       description: 'update-test-desc',
     });
 
-    expect(res).toStrictEqual(surveyObj);
+    expect(descUpdateResult).toStrictEqual({
+      id: 1,
+      name: 'update-test-survey',
+      description: 'update-test-desc',
+    });
   });
 });

@@ -1,5 +1,4 @@
 import {
-  CreateSurveyOutPort,
   SurveyCreateOutPortInputDto,
   SurveyCreateOutPortOutputDto,
 } from '../../out-port/survey-create.op';
@@ -23,7 +22,7 @@ import { SurveyCreateService } from '../survey-create.service';
 // }
 
 describe('설문지를 생성한다.', () => {
-  const surveyObj: SurveyCreateOutPortOutputDto = {
+  const survey: SurveyCreateOutPortOutputDto = {
     id: 1,
     name: 'test-survey',
     description: 'test-desc',
@@ -33,10 +32,10 @@ describe('설문지를 생성한다.', () => {
     description: 'test-desc',
   };
   const CreateSurveyService = new SurveyCreateService();
-  // new MockCreateOutPort(params, surveyObj);
+  // new MockCreateOutPort(params, survey);
   test('설문지 생성.', async () => {
-    const res = await CreateSurveyService.execute(params);
+    const createResult = await CreateSurveyService.execute(params);
 
-    expect(res).toStrictEqual(surveyObj);
+    expect(createResult).toStrictEqual(survey);
   });
 });

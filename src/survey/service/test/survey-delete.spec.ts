@@ -1,11 +1,7 @@
-import {
-  DeleteSurveyOutPort,
-  SurveyDeleteOutPortInputDto,
-  SurveyDeleteOutPortOutputDto,
-} from '../../out-port/survey-delete.op';
+import { SurveyDeleteOutPortInputDto } from '../../out-port/survey-delete.op';
 import { SurveyDeleteService } from '../survey-delete.service';
 
-type SurveyDeleteList = Array<{
+type SurveyList = Array<{
   id: number;
   name: string;
   description: string;
@@ -28,7 +24,7 @@ type SurveyDeleteList = Array<{
 // }
 
 describe('설문지를 생성한다.', () => {
-  const surveyList: SurveyDeleteList = [
+  const surveyList: SurveyList = [
     {
       id: 1,
       name: 'survey-one',

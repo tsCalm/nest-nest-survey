@@ -1,5 +1,4 @@
 import {
-  FindAllSurveyOutPort,
   SurveyFindAllOutPortInputDto,
   SurveyFindAllOutPortOutputDto,
 } from '../../out-port/survey-findall.op';
@@ -23,7 +22,7 @@ import { SurveyFindAllService } from '../survey-findall.service';
 // }
 
 describe('설문지 리스트를 반환한다.', () => {
-  const surveyFindAllResult: SurveyFindAllOutPortOutputDto = [
+  const surveyList: SurveyFindAllOutPortOutputDto = [
     {
       id: 1,
       name: '당신이 선호하는 백엔드 언어는?',
@@ -52,11 +51,11 @@ describe('설문지 리스트를 반환한다.', () => {
   const findAllSurveyService = new SurveyFindAllService();
   // new MockFindAllOutPort(
   //   params,
-  //   surveyFindAllResult,
+  //   surveyList,
   // );
   test('설문지 목록', async () => {
-    const surveyList = await findAllSurveyService.execute(params);
+    const findallResult = await findAllSurveyService.execute(params);
 
-    expect(surveyList).toStrictEqual(surveyFindAllResult);
+    expect(findallResult).toStrictEqual(surveyList);
   });
 });
