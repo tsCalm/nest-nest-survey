@@ -1,10 +1,9 @@
-import { Test, TestingModule } from '@nestjs/testing';
 import {
   DeleteSurveyOutPort,
   SurveyDeleteOutPortInputDto,
   SurveyDeleteOutPortOutputDto,
 } from '../../out-port/survey-delete.op';
-import { SurveyService } from '../survey.service';
+import { SurveyDeleteService } from '../survey-delete.service';
 
 type SurveyDeleteList = Array<{
   id: number;
@@ -12,21 +11,21 @@ type SurveyDeleteList = Array<{
   description: string;
 }>;
 
-class MockDeleteOutPort implements DeleteSurveyOutPort {
-  private readonly result: SurveyDeleteList;
+// class MockDeleteOutPort implements DeleteSurveyOutPort {
+//   private readonly result: SurveyDeleteList;
 
-  constructor(result: SurveyDeleteList) {
-    this.result = result;
-  }
+//   constructor(result: SurveyDeleteList) {
+//     this.result = result;
+//   }
 
-  async execute(
-    params: SurveyDeleteOutPortInputDto,
-  ): Promise<SurveyDeleteOutPortOutputDto> {
-    const findedSurvey = this.result.find((survey) => survey.id === params);
-    if (!findedSurvey) return 0;
-    return 1;
-  }
-}
+//   async execute(
+//     params: SurveyDeleteOutPortInputDto,
+//   ): Promise<SurveyDeleteOutPortOutputDto> {
+//     const findedSurvey = this.result.find((survey) => survey.id === params);
+//     if (!findedSurvey) return 0;
+//     return 1;
+//   }
+// }
 
 describe('설문지를 생성한다.', () => {
   const surveyList: SurveyDeleteList = [
@@ -48,7 +47,8 @@ describe('설문지를 생성한다.', () => {
   ];
   const existIdDeleteParam: SurveyDeleteOutPortInputDto = 1;
   const notExistIdDeleteParam: SurveyDeleteOutPortInputDto = 4;
-  const DeleteSurveyService = new MockDeleteOutPort(surveyList);
+  const DeleteSurveyService = new SurveyDeleteService();
+  // new MockDeleteOutPort(surveyList);
   test('존재하는 설문지 삭제', async () => {
     const res = await DeleteSurveyService.execute(existIdDeleteParam);
 

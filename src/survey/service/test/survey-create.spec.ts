@@ -1,27 +1,26 @@
-import { Test, TestingModule } from '@nestjs/testing';
 import {
   CreateSurveyOutPort,
   SurveyCreateOutPortInputDto,
   SurveyCreateOutPortOutputDto,
 } from '../../out-port/survey-create.op';
-import { SurveyService } from '../survey.service';
+import { SurveyCreateService } from '../survey-create.service';
 
-class MockCreateOutPort implements CreateSurveyOutPort {
-  private readonly result: SurveyCreateOutPortOutputDto;
+// class MockCreateOutPort implements CreateSurveyOutPort {
+//   private readonly result: SurveyCreateOutPortOutputDto;
 
-  constructor(
-    params: SurveyCreateOutPortInputDto,
-    result: SurveyCreateOutPortOutputDto,
-  ) {
-    this.result = result;
-  }
+//   constructor(
+//     params: SurveyCreateOutPortInputDto,
+//     result: SurveyCreateOutPortOutputDto,
+//   ) {
+//     this.result = result;
+//   }
 
-  async execute(
-    params: SurveyCreateOutPortInputDto,
-  ): Promise<SurveyCreateOutPortOutputDto> {
-    return this.result;
-  }
-}
+//   async execute(
+//     params: SurveyCreateOutPortInputDto,
+//   ): Promise<SurveyCreateOutPortOutputDto> {
+//     return this.result;
+//   }
+// }
 
 describe('설문지를 생성한다.', () => {
   const surveyObj: SurveyCreateOutPortOutputDto = {
@@ -33,7 +32,8 @@ describe('설문지를 생성한다.', () => {
     name: 'test-survey',
     description: 'test-desc',
   };
-  const CreateSurveyService = new MockCreateOutPort(params, surveyObj);
+  const CreateSurveyService = new SurveyCreateService();
+  // new MockCreateOutPort(params, surveyObj);
   test('설문지 생성.', async () => {
     const res = await CreateSurveyService.execute(params);
 

@@ -1,24 +1,23 @@
-import { Test, TestingModule } from '@nestjs/testing';
 import {
-  UpdateSurveyOutPort,
   SurveyUpdateOutPortInputDto,
   SurveyUpdateOutPortOutputDto,
+  UpdateSurveyOutPort,
 } from '../../out-port/survey-update.op';
-import { SurveyService } from '../survey.service';
+import { SurveyUpdateService } from '../survey-update.service';
 
-class MockUpdateOutPort implements UpdateSurveyOutPort {
-  private readonly result: SurveyUpdateOutPortOutputDto;
+// class MockUpdateOutPort implements UpdateSurveyOutPort {
+//   private readonly result: SurveyUpdateOutPortOutputDto;
 
-  constructor(result: SurveyUpdateOutPortOutputDto) {
-    this.result = result;
-  }
+//   constructor(result: SurveyUpdateOutPortOutputDto) {
+//     this.result = result;
+//   }
 
-  async execute(
-    params: SurveyUpdateOutPortInputDto,
-  ): Promise<SurveyUpdateOutPortOutputDto> {
-    return { ...this.result, ...params };
-  }
-}
+//   async execute(
+//     params: SurveyUpdateOutPortInputDto,
+//   ): Promise<SurveyUpdateOutPortOutputDto> {
+//     return { ...this.result, ...params };
+//   }
+// }
 
 describe('설문지 업데이트', () => {
   const surveyObj: SurveyUpdateOutPortOutputDto = {
@@ -27,7 +26,8 @@ describe('설문지 업데이트', () => {
     description: 'test-desc',
   };
 
-  const UpdateSurveyService = new MockUpdateOutPort(surveyObj);
+  const UpdateSurveyService = new SurveyUpdateService();
+  // new MockUpdateOutPort(surveyObj);
   test('설문지 이름', async () => {
     const res = await UpdateSurveyService.execute({
       name: 'update-test-survey',
