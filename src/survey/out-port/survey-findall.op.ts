@@ -10,6 +10,9 @@ export type SurveyFindAllOutPortOutputDto = Array<{
   description: string;
 }>;
 
+export const FINDALL_SURVEY_OUTBOUND_PORT =
+  'FINDALL_SURVEY_OUTBOUND_PORT' as const;
+
 export interface FindAllSurveyOutPort {
   execute(
     params: SurveyFindAllOutPortInputDto,

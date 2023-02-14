@@ -11,6 +11,9 @@ export type SurveySearchOutPortOutputDto = Array<{
   description: string;
 }>;
 
+export const SEARCH_SURVEY_OUTBOUND_PORT =
+  'SEARCH_SURVEY_OUTBOUND_PORT' as const;
+
 export interface SearchSurveyOutPort {
   execute(
     params: SurveySearchOutPortInputDto,

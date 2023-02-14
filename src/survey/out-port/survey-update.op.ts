@@ -9,6 +9,9 @@ export type SurveyUpdateOutPortOutputDto = {
   description: string;
 };
 
+export const UPDATE_SURVEY_OUTBOUND_PORT =
+  'UPDATE_SURVEY_OUTBOUND_PORT' as const;
+
 export interface UpdateSurveyOutPort {
   execute(
     params: SurveyUpdateOutPortInputDto,
