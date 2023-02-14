@@ -1,7 +1,4 @@
-export type SurveyFindOneInPortInputDto = {
-  name: string;
-  description: string;
-};
+export type SurveyFindOneInPortInputDto = number;
 
 export type SurveyFindOneInPortOutputDto = {
   id: number;
@@ -9,6 +6,7 @@ export type SurveyFindOneInPortOutputDto = {
   description: string;
 };
 
+// provider token
 export const FINDONE_SURVEY_INBOUND_PORT =
   'FINDONE_SURVEY_INBOUND_PORT' as const;
 

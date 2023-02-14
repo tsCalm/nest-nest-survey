@@ -9,6 +9,7 @@ export type SurveyCreateInPortOutputDto = {
   description: string;
 };
 
+// provider token
 export const CREATE_SURVEY_INBOUND_PORT = 'CREATE_SURVEY_INBOUND_PORT' as const;
 
 export interface CreateSurveyInPort {

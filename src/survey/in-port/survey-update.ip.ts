@@ -1,6 +1,6 @@
 export type SurveyUpdateInPortInputDto = {
-  name: string;
-  description: string;
+  name?: string;
+  description?: string;
 };
 
 export type SurveyUpdateInPortOutputDto = {
@@ -9,6 +9,7 @@ export type SurveyUpdateInPortOutputDto = {
   description: string;
 };
 
+// provider token
 export const UPDATE_SURVEY_INBOUND_PORT = 'UPDATE_SURVEY_INBOUND_PORT' as const;
 
 export interface UpdateSurveyInPort {

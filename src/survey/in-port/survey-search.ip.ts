@@ -1,6 +1,8 @@
 export type SurveySearchInPortInputDto = {
-  name: string;
-  description: string;
+  keyword: string;
+  page: number;
+  size: number;
+  sort: 'ASC' | 'DESC';
 };
 
 export type SurveySearchInPortOutputDto = {
@@ -9,6 +11,7 @@ export type SurveySearchInPortOutputDto = {
   description: string;
 };
 
+// provider token
 export const SEARCH_SURVEY_INBOUND_PORT = 'SEARCH_SURVEY_INBOUND_PORT' as const;
 
 export interface SearchSurveyInPort {
