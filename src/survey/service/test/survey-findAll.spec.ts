@@ -58,7 +58,7 @@ describe('설문지 리스트를 반환한다.', () => {
     params,
     surveyFindAllResult,
   );
-  test('서비스 -> 레파지토리 데이터 검증.', async () => {
+  test('설문지 목록', async () => {
     const surveyList = await findAllSurveyService.execute(params);
 
     expect(surveyList).toStrictEqual(surveyFindAllResult);

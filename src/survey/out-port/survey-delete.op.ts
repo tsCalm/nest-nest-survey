@@ -1,9 +1,9 @@
-export type SurveyUpdateOutPortInputDto = number;
+export type SurveyDeleteOutPortInputDto = number;
 
-export type SurveyUpdateOutPortOutputDto = boolean;
+export type SurveyDeleteOutPortOutputDto = number;
 
-export interface UpdateSurveyOutPort {
+export interface DeleteSurveyOutPort {
   execute(
-    params: SurveyUpdateOutPortInputDto,
-  ): Promise<SurveyUpdateOutPortOutputDto>;
+    params: SurveyDeleteOutPortInputDto,
+  ): Promise<SurveyDeleteOutPortOutputDto>;
 }
