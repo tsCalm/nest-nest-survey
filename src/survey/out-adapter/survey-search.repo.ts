@@ -1,5 +1,5 @@
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Like, Repository } from 'typeorm';
 import {
   SearchSurveyOutPort,
   SurveySearchOutPortInputDto,
@@ -15,6 +15,15 @@ export class SearchSurveyRepository implements SearchSurveyOutPort {
   execute(
     params: SurveySearchOutPortInputDto,
   ): Promise<SurveySearchOutPortOutputDto> {
-    return null;
+    return this.surveyRepo.find({
+      where: {
+        name: Like(`%${params.keyword}%`),
+      },
+      skip: (params.page - 1) * params.size,
+      take: params.size,
+      order: {
+        name: params.sort,
+      },
+    });
   }
 }

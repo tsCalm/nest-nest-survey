@@ -15,6 +15,6 @@ export class CreateSurveyRepository implements CreateSurveyOutPort {
   execute(
     params: SurveyCreateOutPortInputDto,
   ): Promise<SurveyCreateOutPortOutputDto> {
-    return null;
+    return this.surveyRepo.save(params);
   }
 }

@@ -1,5 +1,5 @@
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { DeleteResult, Repository } from 'typeorm';
 import {
   DeleteSurveyOutPort,
   SurveyDeleteOutPortInputDto,
@@ -12,9 +12,11 @@ export class DeleteSurveyRepository implements DeleteSurveyOutPort {
     @InjectRepository(Survey) private readonly surveyRepo: Repository<Survey>,
   ) {}
 
-  execute(
+  async execute(
     params: SurveyDeleteOutPortInputDto,
   ): Promise<SurveyDeleteOutPortOutputDto> {
-    return null;
+    const result: DeleteResult = await this.surveyRepo.delete(params);
+    // DeleteResult { raw: [], affected: 1 }
+    return result.affected;
   }
 }

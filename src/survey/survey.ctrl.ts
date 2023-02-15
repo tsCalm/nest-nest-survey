@@ -8,7 +8,10 @@ import {
   ParseIntPipe,
   Patch,
   Post,
+  Query,
 } from '@nestjs/common';
+import { SurveyCreateDto } from './dto/survey-create.dto';
+import { SurveyUpdateDto } from './dto/survey-update.dto';
 import {
   CreateSurveyInPort,
   CREATE_SURVEY_INBOUND_PORT,
@@ -53,29 +56,35 @@ export class SurveyController {
   ) {}
 
   @Get('')
-  findAll(@Body() inportDto: SurveyFindAllInPortInputDto) {
-    console.log('inportDto : ', inportDto);
-    return this.findAllSurveyInPort.execute({ page: 1, size: 3, sort: 'ASC' });
+  findAll() {
+    console.log('findall');
+    return this.findAllSurveyInPort.execute({ page: 1, size: 10, sort: 'ASC' });
   }
 
-  @Get(':id')
+  @Get(':id/all')
   findOne(@Param('id', ParseIntPipe) id: number) {
     return this.findOneSurveyInPort.execute(id);
   }
 
-  @Get('search')
-  search(@Param('id', ParseIntPipe) id: number) {
-    // return this.searchSurveyInPort.execute(id);
+  @Get('/search')
+  search() {
+    console.log('search');
+    return this.searchSurveyInPort.execute({
+      keyword: 'test',
+      page: 1,
+      size: 10,
+      sort: 'ASC',
+    });
   }
 
-  @Post(':id')
-  create(@Param('id', ParseIntPipe) id: number) {
-    // return this.createSurveyInPort.execute();
+  @Post('create')
+  create(@Body() surveyCreateDto: SurveyCreateDto) {
+    return this.createSurveyInPort.execute(surveyCreateDto);
   }
 
   @Patch(':id')
-  update(@Param('id', ParseIntPipe) id: number) {
-    // return this.updateSurveyInPort.execute(id);
+  update(@Body() surveyUpdateDto: SurveyUpdateDto) {
+    return this.updateSurveyInPort.execute(surveyUpdateDto);
   }
 
   @Delete(':id')

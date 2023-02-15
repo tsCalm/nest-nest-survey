@@ -12,9 +12,14 @@ export class UpdateSurveyRepository implements UpdateSurveyOutPort {
     @InjectRepository(Survey) private readonly surveyRepo: Repository<Survey>,
   ) {}
 
-  execute(
+  async execute(
     params: SurveyUpdateOutPortInputDto,
   ): Promise<SurveyUpdateOutPortOutputDto> {
-    return null;
+    const findedSurvey = await this.surveyRepo.findOne({
+      where: {
+        id: params.id,
+      },
+    });
+    return this.surveyRepo.save({ ...findedSurvey, ...params });
   }
 }

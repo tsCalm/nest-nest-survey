@@ -1,4 +1,5 @@
 export type SurveyUpdateInPortInputDto = {
+  id: number;
   name?: string;
   description?: string;
 };
