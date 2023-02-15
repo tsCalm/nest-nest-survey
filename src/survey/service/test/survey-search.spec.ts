@@ -1,7 +1,4 @@
-import {
-  SurveySearchOutPortInputDto,
-  SurveySearchOutPortOutputDto,
-} from '../../out-port/survey-search.op';
+import { SurveySearchInPortInputDto } from '../../in-port/survey-search.ip';
 import { SurveySearchService } from '../survey-Search.service';
 
 // class MockSearchOutPort implements SearchSurveyOutPort {
@@ -22,28 +19,28 @@ import { SurveySearchService } from '../survey-Search.service';
 // }
 
 describe('설문지 리스트를 반환한다.', () => {
-  const surveyList: SurveySearchOutPortOutputDto = [
-    {
-      id: 1,
-      name: '당신이 선호하는 백엔드 언어는?',
-      description:
-        '백엔드 개발자가 선호하는 언어를 조사하기 위한 설문지입니다.',
-    },
-    {
-      id: 2,
-      name: '당신이 선호하는 프론트엔드 언어는?',
-      description:
-        '프론트엔드 개발자가 선호하는 언어를 조사하기 위한 설문지입니다.',
-    },
-    {
-      id: 3,
-      name: '당신이 nodejs 개발자를 선택한 이유는?',
-      description:
-        '개발자가 자신이 주력으로 사용한 언어를 선택한 이유를 묻는 설문지입니다.',
-    },
-  ];
+  // const surveyList: SurveySearchInPortOutputDto = [
+  //   {
+  //     id: 1,
+  //     name: '당신이 선호하는 백엔드 언어는?',
+  //     description:
+  //       '백엔드 개발자가 선호하는 언어를 조사하기 위한 설문지입니다.',
+  //   },
+  //   {
+  //     id: 2,
+  //     name: '당신이 선호하는 프론트엔드 언어는?',
+  //     description:
+  //       '프론트엔드 개발자가 선호하는 언어를 조사하기 위한 설문지입니다.',
+  //   },
+  //   {
+  //     id: 3,
+  //     name: '당신이 nodejs 개발자를 선택한 이유는?',
+  //     description:
+  //       '개발자가 자신이 주력으로 사용한 언어를 선택한 이유를 묻는 설문지입니다.',
+  //   },
+  // ];
 
-  const params: SurveySearchOutPortInputDto = {
+  const params: SurveySearchInPortInputDto = {
     page: 1,
     size: 3,
     sort: 'ASC',

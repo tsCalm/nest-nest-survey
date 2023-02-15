@@ -1,4 +1,3 @@
-import { SurveyUpdateOutPortOutputDto } from '../../out-port/survey-update.op';
 import { SurveyUpdateService } from '../survey-update.service';
 
 // class MockUpdateOutPort implements UpdateSurveyOutPort {
@@ -16,11 +15,11 @@ import { SurveyUpdateService } from '../survey-update.service';
 // }
 
 describe('설문지 업데이트', () => {
-  const survey: SurveyUpdateOutPortOutputDto = {
-    id: 1,
-    name: 'test-survey',
-    description: 'test-desc',
-  };
+  // const survey: SurveyUpdateInPortOutputDto = {
+  //   id: 1,
+  //   name: 'test-survey',
+  //   description: 'test-desc',
+  // };
 
   const UpdateSurveyService = new SurveyUpdateService();
   // new MockUpdateOutPort(survey);

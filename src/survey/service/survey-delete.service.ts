@@ -1,9 +1,15 @@
 import { Injectable } from '@nestjs/common';
-import { DeleteSurveyOutPort } from '../out-port/survey-delete.op';
+import {
+  DeleteSurveyInPort,
+  SurveyDeleteInPortInputDto,
+  SurveyDeleteInPortOutputDto,
+} from '../in-port/survey-delete.ip';
 
 @Injectable()
-export class SurveyDeleteService implements DeleteSurveyOutPort {
-  execute(params: number): Promise<number> {
+export class SurveyDeleteService implements DeleteSurveyInPort {
+  execute(
+    params: SurveyDeleteInPortInputDto,
+  ): Promise<SurveyDeleteInPortOutputDto> {
     return null;
   }
 }

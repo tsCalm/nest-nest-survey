@@ -1,15 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import {
-  SurveyUpdateOutPortInputDto,
-  SurveyUpdateOutPortOutputDto,
-  UpdateSurveyOutPort,
-} from '../out-port/survey-update.op';
+  SurveyUpdateInPortInputDto,
+  SurveyUpdateInPortOutputDto,
+  UpdateSurveyInPort,
+} from '../in-port/survey-update.ip';
 
 @Injectable()
-export class SurveyUpdateService implements UpdateSurveyOutPort {
+export class SurveyUpdateService implements UpdateSurveyInPort {
   execute(
-    params: SurveyUpdateOutPortInputDto,
-  ): Promise<SurveyUpdateOutPortOutputDto> {
+    params: SurveyUpdateInPortInputDto,
+  ): Promise<SurveyUpdateInPortOutputDto> {
     return null;
   }
 }

@@ -1,4 +1,4 @@
-import { SurveyDeleteOutPortInputDto } from '../../out-port/survey-delete.op';
+import { SurveyDeleteInPortInputDto } from '../../in-port/survey-delete.ip';
 import { SurveyDeleteService } from '../survey-delete.service';
 
 type SurveyList = Array<{
@@ -24,25 +24,25 @@ type SurveyList = Array<{
 // }
 
 describe('설문지를 생성한다.', () => {
-  const surveyList: SurveyList = [
-    {
-      id: 1,
-      name: 'survey-one',
-      description: 'survey-one-desc',
-    },
-    {
-      id: 2,
-      name: 'survey-two',
-      description: 'survey-two-desc',
-    },
-    {
-      id: 3,
-      name: 'survey-three',
-      description: 'survey-three-desc',
-    },
-  ];
-  const existIdDeleteParam: SurveyDeleteOutPortInputDto = 1;
-  const notExistIdDeleteParam: SurveyDeleteOutPortInputDto = 4;
+  // const surveyList: SurveyList = [
+  //   {
+  //     id: 1,
+  //     name: 'survey-one',
+  //     description: 'survey-one-desc',
+  //   },
+  //   {
+  //     id: 2,
+  //     name: 'survey-two',
+  //     description: 'survey-two-desc',
+  //   },
+  //   {
+  //     id: 3,
+  //     name: 'survey-three',
+  //     description: 'survey-three-desc',
+  //   },
+  // ];
+  const existIdDeleteParam: SurveyDeleteInPortInputDto = 1;
+  const notExistIdDeleteParam: SurveyDeleteInPortInputDto = 4;
   const DeleteSurveyService = new SurveyDeleteService();
   // new MockDeleteOutPort(surveyList);
   test('존재하는 설문지 삭제', async () => {

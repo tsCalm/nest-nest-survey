@@ -1,7 +1,7 @@
 import {
-  SurveyCreateOutPortInputDto,
-  SurveyCreateOutPortOutputDto,
-} from '../../out-port/survey-create.op';
+  SurveyCreateInPortInputDto,
+  SurveyCreateInPortOutputDto,
+} from '../../in-port/survey-create.ip';
 import { SurveyCreateService } from '../survey-create.service';
 
 // class MockCreateOutPort implements CreateSurveyOutPort {
@@ -22,12 +22,12 @@ import { SurveyCreateService } from '../survey-create.service';
 // }
 
 describe('설문지를 생성한다.', () => {
-  const survey: SurveyCreateOutPortOutputDto = {
+  const survey: SurveyCreateInPortOutputDto = {
     id: 1,
     name: 'test-survey',
     description: 'test-desc',
   };
-  const params: SurveyCreateOutPortInputDto = {
+  const params: SurveyCreateInPortInputDto = {
     name: 'test-survey',
     description: 'test-desc',
   };

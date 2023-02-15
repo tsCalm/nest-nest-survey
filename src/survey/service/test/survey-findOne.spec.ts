@@ -1,7 +1,7 @@
 import {
-  SurveyFindOneOutPortInputDto,
-  SurveyFindOneOutPortOutputDto,
-} from '../../out-port/survey-findone.op';
+  SurveyFindOneInPortInputDto,
+  SurveyFindOneInPortOutputDto,
+} from '../../in-port/survey-findone.ip';
 import { SurveyFindOneService } from '../survey-findone.service';
 
 // class MockFindAllOutPort implements FindOneSurveyOutPort {
@@ -22,12 +22,12 @@ import { SurveyFindOneService } from '../survey-findone.service';
 // }
 
 describe('설문지 상세정보를 반환한다.', () => {
-  const survey: SurveyFindOneOutPortOutputDto = {
+  const survey: SurveyFindOneInPortOutputDto = {
     id: 1,
     name: 'test-survey',
     description: 'test-desc',
   };
-  const params: SurveyFindOneOutPortInputDto = 1;
+  const params: SurveyFindOneInPortInputDto = 1;
   const findAllSurveyService = new SurveyFindOneService();
   // new MockFindAllOutPort(params, survey);
   test('설문지 상세', async () => {

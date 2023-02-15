@@ -1,15 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import {
-  SearchSurveyOutPort,
-  SurveySearchOutPortInputDto,
-  SurveySearchOutPortOutputDto,
-} from '../out-port/survey-search.op';
+  SearchSurveyInPort,
+  SurveySearchInPortInputDto,
+  SurveySearchInPortOutputDto,
+} from '../in-port/survey-search.ip';
 
 @Injectable()
-export class SurveySearchService implements SearchSurveyOutPort {
+export class SurveySearchService implements SearchSurveyInPort {
   execute(
-    params: SurveySearchOutPortInputDto,
-  ): Promise<SurveySearchOutPortOutputDto> {
+    params: SurveySearchInPortInputDto,
+  ): Promise<SurveySearchInPortOutputDto> {
     return null;
   }
 }
