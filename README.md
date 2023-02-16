@@ -69,7 +69,7 @@ old-nest-survey의 개선 버전
 
 - ERD & Entity [바로가기](https://hssm93.tistory.com/entry/11-NestJs-%EC%84%A4%EB%AC%B8%EC%A1%B0%EC%82%AC-%EB%AF%B8%EB%8B%88-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%97%94%ED%8B%B0%ED%8B%B0-%EB%A7%8C%EB%93%A4%EA%B8%B0)
 
-- 각 모듈별 유닛 테스트 케이스 계획
+- survey module 완성하기
 
   1. type, interface, service 선언하기 [바로가기](https://hssm93.tistory.com/entry/11-NestJs-%EC%84%A4%EB%AC%B8%EC%A1%B0%EC%82%AC-%EB%AF%B8%EB%8B%88-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-TDD-%EC%B2%AB%EA%B2%BD%ED%97%98)
 

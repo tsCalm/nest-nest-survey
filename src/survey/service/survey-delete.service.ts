@@ -11,14 +11,11 @@ import {
 
 @Injectable()
 export class SurveyDeleteService implements DeleteSurveyInPort {
-  constructor(
-    @Inject(DELETE_SURVEY_OUTBOUND_PORT)
-    private readonly deleteSurveyInPort: DeleteSurveyOutPort,
-  ) {}
+  constructor() {}
 
   execute(
     params: SurveyDeleteInPortInputDto,
   ): Promise<SurveyDeleteInPortOutputDto> {
-    return this.deleteSurveyInPort.execute(params);
+    return null;
   }
 }

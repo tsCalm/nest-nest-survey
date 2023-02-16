@@ -11,14 +11,11 @@ import {
 
 @Injectable()
 export class SurveyFindOneService implements FindOneSurveyInPort {
-  constructor(
-    @Inject(FINDONE_SURVEY_OUTBOUND_PORT)
-    private readonly findOneSurveyInPort: FindOneSurveyOutPort,
-  ) {}
+  constructor() {}
 
   execute(
     params: SurveyFindOneInPortInputDto,
   ): Promise<SurveyFindOneInPortOutputDto> {
-    return this.findOneSurveyInPort.execute(params);
+    return null;
   }
 }

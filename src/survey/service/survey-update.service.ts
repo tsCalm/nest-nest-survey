@@ -11,14 +11,11 @@ import {
 
 @Injectable()
 export class SurveyUpdateService implements UpdateSurveyInPort {
-  constructor(
-    @Inject(UPDATE_SURVEY_OUTBOUND_PORT)
-    private readonly updateSurveyInPort: UpdateSurveyOutPort,
-  ) {}
+  constructor() {}
 
   execute(
     params: SurveyUpdateInPortInputDto,
   ): Promise<SurveyUpdateInPortOutputDto> {
-    return this.updateSurveyInPort.execute(params);
+    return null;
   }
 }

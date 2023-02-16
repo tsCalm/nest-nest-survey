@@ -1,5 +1,4 @@
 import {
-  Body,
   Controller,
   Delete,
   Get,
@@ -8,10 +7,7 @@ import {
   ParseIntPipe,
   Patch,
   Post,
-  Query,
 } from '@nestjs/common';
-import { SurveyCreateDto } from './dto/survey-create.dto';
-import { SurveyUpdateDto } from './dto/survey-update.dto';
 import {
   CreateSurveyInPort,
   CREATE_SURVEY_INBOUND_PORT,
@@ -23,7 +19,6 @@ import {
 import {
   FindAllSurveyInPort,
   FINDALL_SURVEY_INBOUND_PORT,
-  SurveyFindAllInPortInputDto,
 } from './in-port/survey-findall.ip';
 import {
   FindOneSurveyInPort,
@@ -78,17 +73,17 @@ export class SurveyController {
   }
 
   @Post('create')
-  create(@Body() surveyCreateDto: SurveyCreateDto) {
-    return this.createSurveyInPort.execute(surveyCreateDto);
+  create() {
+    return null;
   }
 
   @Patch(':id')
-  update(@Body() surveyUpdateDto: SurveyUpdateDto) {
-    return this.updateSurveyInPort.execute(surveyUpdateDto);
+  update() {
+    return null;
   }
 
   @Delete(':id')
   delete(@Param('id', ParseIntPipe) id: number) {
-    return this.deleteSurveyInPort.execute(id);
+    return null;
   }
 }
