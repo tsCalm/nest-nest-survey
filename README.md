@@ -14,6 +14,11 @@ old-nest-survey의 개선 버전
 
 <img width="550" alt="스크린샷 2023-02-07 오후 5 51 26" src="https://user-images.githubusercontent.com/106916440/217197790-8e129e87-d388-48c8-b49a-6bf5adfe4dc4.png">
 
+## [헥사고날 아키텍처](https://hssm93.tistory.com/entry/Hexagonal-Architecture-%ED%97%A5%EC%82%AC%EA%B3%A0%EB%82%A0-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0)
+
+<img width="422" alt="스크린샷 2023-02-16 오후 7 50 05" src="https://user-images.githubusercontent.com/106916440/219344806-3bc29558-15f2-456e-a0e1-14e9de03a8e9.png">
+  
+  
 ## ERD
 
 <img width="875" alt="스크린샷 2023-02-12 오후 7 54 55" src="https://user-images.githubusercontent.com/106916440/218306824-7198eb98-9a6c-4eda-9180-829d96616520.png">
