@@ -51,33 +51,37 @@ old-nest-survey의 개선 버전
 
 ## 프로젝트 진행
 
-1. github workflow 생성 [바로가기](https://hssm93.tistory.com/entry/NestJs-%EC%84%A4%EB%AC%B8%EC%A1%B0%EC%82%AC-%EB%AF%B8%EB%8B%88-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-1)
+- nestjs & git actions ci/cd
 
-2. AWS-EC2 & git actions를 활용한 CI/CD구현
+  1. github workflow 생성 [바로가기](https://hssm93.tistory.com/entry/NestJs-%EC%84%A4%EB%AC%B8%EC%A1%B0%EC%82%AC-%EB%AF%B8%EB%8B%88-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-1)
 
-- aws ec2 인스턴스 생성 [바로가기](https://hssm93.tistory.com/entry/NestJs-%EC%84%A4%EB%AC%B8%EC%A1%B0%EC%82%AC-%EB%AF%B8%EB%8B%88-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-2-AWS-EC2-%EC%83%9D%EC%84%B1)
-- aws ec2 인스턴스 접속 [바로가기](https://hssm93.tistory.com/entry/NestJs-%EC%84%A4%EB%AC%B8%EC%A1%B0%EC%82%AC-%EB%AF%B8%EB%8B%88-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-2-AWS-EC2-%EC%A0%91%EC%86%8D-%EB%B0%8F-%EB%B0%B0%ED%8F%AC)
-- aws ec2 인스턴스 배포 [바로가기](https://hssm93.tistory.com/entry/NestJs-%EC%84%A4%EB%AC%B8%EC%A1%B0%EC%82%AC-%EB%AF%B8%EB%8B%88-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-3-AWS-EC2-%EB%B0%B0%ED%8F%AC)
-- aws ec2 인스턴스 pm2를 사용하여 백그라운드로 실행하기 [바로가기](https://hssm93.tistory.com/entry/NestJs-%EC%84%A4%EB%AC%B8%EC%A1%B0%EC%82%AC-%EB%AF%B8%EB%8B%88-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-6-AWS-EC2-%EB%B0%B0%ED%8F%AC)
-- aws ec2 인스턴스 도메인 연결 & nginx 리버스 프록시 설정 [바로가기](https://hssm93.tistory.com/entry/NestJs-%EC%84%A4%EB%AC%B8%EC%A1%B0%EC%82%AC-%EB%AF%B8%EB%8B%88-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-4-AWS-EC2-%EB%B0%B0%ED%8F%AC-%EB%8F%84%EB%A9%94%EC%9D%B8)
+  2. aws ec2 인스턴스 생성 [바로가기](https://hssm93.tistory.com/entry/NestJs-%EC%84%A4%EB%AC%B8%EC%A1%B0%EC%82%AC-%EB%AF%B8%EB%8B%88-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-2-AWS-EC2-%EC%83%9D%EC%84%B1)
+  3. aws ec2 인스턴스 접속 [바로가기](https://hssm93.tistory.com/entry/NestJs-%EC%84%A4%EB%AC%B8%EC%A1%B0%EC%82%AC-%EB%AF%B8%EB%8B%88-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-2-AWS-EC2-%EC%A0%91%EC%86%8D-%EB%B0%8F-%EB%B0%B0%ED%8F%AC)
+  4. aws ec2 인스턴스 배포 [바로가기](https://hssm93.tistory.com/entry/NestJs-%EC%84%A4%EB%AC%B8%EC%A1%B0%EC%82%AC-%EB%AF%B8%EB%8B%88-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-3-AWS-EC2-%EB%B0%B0%ED%8F%AC)
+  5. aws ec2 인스턴스 pm2를 사용하여 백그라운드로 실행하기 [바로가기](https://hssm93.tistory.com/entry/NestJs-%EC%84%A4%EB%AC%B8%EC%A1%B0%EC%82%AC-%EB%AF%B8%EB%8B%88-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-6-AWS-EC2-%EB%B0%B0%ED%8F%AC)
+  6. aws ec2 인스턴스 도메인 연결 & nginx 리버스 프록시 설정 [바로가기](https://hssm93.tistory.com/entry/NestJs-%EC%84%A4%EB%AC%B8%EC%A1%B0%EC%82%AC-%EB%AF%B8%EB%8B%88-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-4-AWS-EC2-%EB%B0%B0%ED%8F%AC-%EB%8F%84%EB%A9%94%EC%9D%B8)
 
-- git actions를 통한 빌드 파일 s3 자동 업로드 [바로가기](https://hssm93.tistory.com/entry/NestJs-%EC%84%A4%EB%AC%B8%EC%A1%B0%EC%82%AC-%EB%AF%B8%EB%8B%88-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-4-AWS-EC2-%EB%B0%B0%ED%8F%AC-%EC%9E%90%EB%8F%99%EB%B0%B0%ED%8F%AC)
+  7. git actions를 통한 빌드 파일 s3 자동 업로드 [바로가기](https://hssm93.tistory.com/entry/NestJs-%EC%84%A4%EB%AC%B8%EC%A1%B0%EC%82%AC-%EB%AF%B8%EB%8B%88-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-4-AWS-EC2-%EB%B0%B0%ED%8F%AC-%EC%9E%90%EB%8F%99%EB%B0%B0%ED%8F%AC)
 
-- aws code-deploy & pm2 & nginx를 사용한 자동배포 [바로가기](https://hssm93.tistory.com/entry/NestJs-%EC%84%A4%EB%AC%B8%EC%A1%B0%EC%82%AC-%EB%AF%B8%EB%8B%88-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-4-AWS-EC2-%EB%B0%B0%ED%8F%AC-%EC%9E%90%EB%8F%99%EB%B0%B0%ED%8F%AC-2)
+  8. aws code-deploy & pm2 & nginx를 사용한 자동배포 [바로가기](https://hssm93.tistory.com/entry/NestJs-%EC%84%A4%EB%AC%B8%EC%A1%B0%EC%82%AC-%EB%AF%B8%EB%8B%88-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-4-AWS-EC2-%EB%B0%B0%ED%8F%AC-%EC%9E%90%EB%8F%99%EB%B0%B0%ED%8F%AC-2)
 
-3. AWS Certificate Manager, Route 53을 사용한 https 적용 [바로가기](https://hssm93.tistory.com/entry/10-NestJs-%EC%84%A4%EB%AC%B8%EC%A1%B0%EC%82%AC-%EB%AF%B8%EB%8B%88-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-AWS-EC2-%EB%B0%B0%ED%8F%AC-https)
+  9. AWS Certificate Manager, Route 53을 사용한 https 적용 [바로가기](https://hssm93.tistory.com/entry/10-NestJs-%EC%84%A4%EB%AC%B8%EC%A1%B0%EC%82%AC-%EB%AF%B8%EB%8B%88-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-AWS-EC2-%EB%B0%B0%ED%8F%AC-https)
 
-4. ERD & Entity [바로가기](https://hssm93.tistory.com/entry/11-NestJs-%EC%84%A4%EB%AC%B8%EC%A1%B0%EC%82%AC-%EB%AF%B8%EB%8B%88-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%97%94%ED%8B%B0%ED%8B%B0-%EB%A7%8C%EB%93%A4%EA%B8%B0)
-5. 각 모듈별 유닛 테스트 케이스 계획
+- ERD & Entity [바로가기](https://hssm93.tistory.com/entry/11-NestJs-%EC%84%A4%EB%AC%B8%EC%A1%B0%EC%82%AC-%EB%AF%B8%EB%8B%88-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%97%94%ED%8B%B0%ED%8B%B0-%EB%A7%8C%EB%93%A4%EA%B8%B0)
 
-- type, interface, service 선언하기 [바로가기](https://hssm93.tistory.com/entry/11-NestJs-%EC%84%A4%EB%AC%B8%EC%A1%B0%EC%82%AC-%EB%AF%B8%EB%8B%88-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-TDD-%EC%B2%AB%EA%B2%BD%ED%97%98)
+- 각 모듈별 유닛 테스트 케이스 계획
 
-- 실패하는 테스트 케이스 만들기 [바로가기](https://hssm93.tistory.com/entry/12-NestJs-%EC%84%A4%EB%AC%B8%EC%A1%B0%EC%82%AC-%EB%AF%B8%EB%8B%88-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%8B%A4%ED%8C%A8%ED%95%98%EB%8A%94-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%BC%80%EC%9D%B4%EC%8A%A4)
+  1. type, interface, service 선언하기 [바로가기](https://hssm93.tistory.com/entry/11-NestJs-%EC%84%A4%EB%AC%B8%EC%A1%B0%EC%82%AC-%EB%AF%B8%EB%8B%88-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-TDD-%EC%B2%AB%EA%B2%BD%ED%97%98)
 
-- 테스트 케이스 통과할 수 있도록 구현
+  2. 실패하는 테스트 케이스 만들기 [바로가기](https://hssm93.tistory.com/entry/12-NestJs-%EC%84%A4%EB%AC%B8%EC%A1%B0%EC%82%AC-%EB%AF%B8%EB%8B%88-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%8B%A4%ED%8C%A8%ED%95%98%EB%8A%94-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%BC%80%EC%9D%B4%EC%8A%A4)
 
-6. 테스트 케이스를 통과할 수 있도록 최소한으로 구현
-7. mock 데이터 10만개 넣어보기
-8. 성능 테스트, 부하테스트 진행하고 문서화하기
-9. 배포 테스트 진행하기
-10. 스웨거 문서 만들기
+  3. 테스트 케이스 통과할 수 있도록 구현
+
+  4. 테스트 케이스를 통과할 수 있도록 최소한으로 구현
+
+- mock 데이터 10만개 넣어보기
+
+- 성능 테스트, 부하테스트 진행하고 문서화하기
+
+- 배포 테스트 진행하기
+- 스웨거 문서 만들기
