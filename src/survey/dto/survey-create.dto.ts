@@ -1,4 +1,4 @@
-import { IsInt, IsString } from 'class-validator';
+import { IsString } from 'class-validator';
 import { SurveyCreateInPortInputDto } from '../in-port/survey-create.ip';
 
 export class SurveyCreateDto implements SurveyCreateInPortInputDto {

@@ -13,11 +13,11 @@ import {
 export class SurveyCreateService implements CreateSurveyInPort {
   constructor(
     @Inject(CREATE_SURVEY_OUTBOUND_PORT)
-    private readonly createSurveyInPort: CreateSurveyOutPort,
+    private readonly createSurveyOutPort: CreateSurveyOutPort,
   ) {}
   execute(
     params: SurveyCreateInPortInputDto,
   ): Promise<SurveyCreateInPortOutputDto> {
-    return this.createSurveyInPort.execute(params);
+    return this.createSurveyOutPort.execute(params);
   }
 }

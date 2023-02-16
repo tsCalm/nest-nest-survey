@@ -39,7 +39,7 @@ describe('설문지를 생성한다.', () => {
   const CreateSurveyService = new SurveyCreateService(
     new MockCreateOutPort(params),
   );
-  // new MockCreateOutPort(params, survey);
+
   test('설문지 생성.', async () => {
     const createResult = await CreateSurveyService.execute(params);
 

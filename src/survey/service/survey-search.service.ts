@@ -13,12 +13,12 @@ import {
 export class SurveySearchService implements SearchSurveyInPort {
   constructor(
     @Inject(SEARCH_SURVEY_OUTBOUND_PORT)
-    private readonly searchSurveyInPort: SearchSurveyOutPort,
+    private readonly searchSurveyOutPort: SearchSurveyOutPort,
   ) {}
 
   execute(
     params: SurveySearchInPortInputDto,
   ): Promise<SurveySearchInPortOutputDto> {
-    return this.searchSurveyInPort.execute(params);
+    return this.searchSurveyOutPort.execute(params);
   }
 }
