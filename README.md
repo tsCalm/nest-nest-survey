@@ -75,9 +75,7 @@ old-nest-survey의 개선 버전
 
   2. 실패하는 테스트 케이스 만들기 [바로가기](https://hssm93.tistory.com/entry/12-NestJs-%EC%84%A4%EB%AC%B8%EC%A1%B0%EC%82%AC-%EB%AF%B8%EB%8B%88-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%8B%A4%ED%8C%A8%ED%95%98%EB%8A%94-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%BC%80%EC%9D%B4%EC%8A%A4)
 
-  3. 테스트 케이스 통과할 수 있도록 구현
-
-  4. 테스트 케이스를 통과할 수 있도록 최소한으로 구현
+  3. 테스트 케이스 통과할 수 있도록 구현 [바로가기](https://hssm93.tistory.com/entry/13-NestJs-%EC%84%A4%EB%AC%B8%EC%A1%B0%EC%82%AC-%EB%AF%B8%EB%8B%88-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8%EB%A5%BC-%ED%86%B5%EA%B3%BC%ED%95%A0-%EC%88%98-%EC%9E%88%EB%8F%84%EB%A1%9D-service-%EA%B5%AC%ED%98%84)
 
 - mock 데이터 10만개 넣어보기
 
