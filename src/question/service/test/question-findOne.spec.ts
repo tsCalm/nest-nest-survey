@@ -24,7 +24,7 @@ class MockFindAllOutPort implements FindOneQuestionOutPort {
 }
 
 describe('설문지 상세정보를 반환한다.', () => {
-  const survey: QuestionFindOneInPortOutputDto = {
+  const question: QuestionFindOneInPortOutputDto = {
     id: 1,
     survey_id: 1,
     question_number: 1,
@@ -33,11 +33,11 @@ describe('설문지 상세정보를 반환한다.', () => {
   };
   const params: QuestionFindOneInPortInputDto = 1;
   const findAllQuestionService = new QuestionFindOneService(
-    new MockFindAllOutPort(survey),
+    new MockFindAllOutPort(question),
   );
   test('설문지 상세', async () => {
     const findoneResult = await findAllQuestionService.execute(params);
 
-    expect(findoneResult).toStrictEqual(survey);
+    expect(findoneResult).toStrictEqual(question);
   });
 });

@@ -33,7 +33,7 @@ class MockDeleteOutPort implements DeleteQuestionOutPort {
 }
 
 describe('질문 삭제', () => {
-  const surveyList: QuestionList = [
+  const questionList: QuestionList = [
     {
       id: 1,
       survey_id: 1,
@@ -59,9 +59,8 @@ describe('질문 삭제', () => {
   const existIdDeleteParam: QuestionDeleteInPortInputDto = 1;
   const notExistIdDeleteParam: QuestionDeleteInPortInputDto = 4;
   const DeleteQuestionService = new QuestionDeleteService(
-    new MockDeleteOutPort(surveyList),
+    new MockDeleteOutPort(questionList),
   );
-  // new MockDeleteOutPort(surveyList);
   test('존재하는 질문 삭제', async () => {
     const res = await DeleteQuestionService.execute(existIdDeleteParam);
 
