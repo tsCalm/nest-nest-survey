@@ -2,6 +2,7 @@ import { Survey } from '../survey/survey.entity';
 import {
   Column,
   Entity,
+  JoinColumn,
   ManyToOne,
   OneToMany,
   PrimaryGeneratedColumn,
@@ -23,7 +24,11 @@ export class Question {
   @Column({ comment: '객관식/주관식' })
   type: string;
 
+  @Column({ type: 'int' })
+  survey_id: number;
+
   @ManyToOne((type) => Survey, (survey) => survey.questions)
+  @JoinColumn({ name: 'survey_id' })
   survey: Survey;
 
   @OneToMany((type) => Option, (option) => option.question)

@@ -28,7 +28,7 @@ class MockDeleteOutPort implements DeleteSurveyOutPort {
   }
 }
 
-describe('설문지를 생성한다.', () => {
+describe('설문지 삭제', () => {
   const surveyList: SurveyList = [
     {
       id: 1,
