@@ -1,10 +1,12 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { SurveyModule } from './survey/survey.module';
 import { ConfigModule } from './config-module';
+import { SurveyModule } from './survey/survey.module';
+import { QuestionModule } from './question/question.module';
+
 @Module({
-  imports: [ConfigModule, SurveyModule],
+  imports: [ConfigModule, SurveyModule, QuestionModule],
   controllers: [AppController],
   providers: [AppService],
 })
