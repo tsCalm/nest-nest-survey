@@ -15,8 +15,8 @@ const option: DataSourceOptions & SeederOptions = {
   synchronize: false,
   logging: true,
   entities: ['src/**/*.entity.ts'],
-  seeds: ['src/**/seed/**/*.ts'],
-  factories: ['src/**/factory/**/*.ts'],
+  seeds: ['src/**/seed/*.ts'],
+  factories: ['src/**/factory/*.ts'],
   // migrations: ['src/database/migrations/*.ts'],
   // migrationsTableName: 'migrations',
 };

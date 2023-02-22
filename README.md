@@ -77,7 +77,7 @@ old-nest-survey의 개선 버전
 
   3. 테스트 케이스 통과할 수 있도록 구현 [바로가기](https://hssm93.tistory.com/entry/13-NestJs-%EC%84%A4%EB%AC%B8%EC%A1%B0%EC%82%AC-%EB%AF%B8%EB%8B%88-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8%EB%A5%BC-%ED%86%B5%EA%B3%BC%ED%95%A0-%EC%88%98-%EC%9E%88%EB%8F%84%EB%A1%9D-service-%EA%B5%AC%ED%98%84)
 
-- mock 데이터 10만개 넣어보기
+- survey seed data 3천개 만들기 (설문지당 질문 5개, 질문당 선택지 4개로 통일)
 
 - 성능 테스트, 부하테스트 진행하고 문서화하기
 
