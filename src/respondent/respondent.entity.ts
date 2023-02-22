@@ -1,5 +1,6 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { Response } from '../response/response.entity';
+
 @Entity()
 export class Respondent {
   @PrimaryGeneratedColumn()
