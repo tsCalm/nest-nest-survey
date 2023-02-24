@@ -7,9 +7,12 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
+import { BaseEntity } from '../common/base-entity';
 
-@Entity()
-export class Response {
+@Entity({
+  name: 'respondent_res',
+})
+export class Response extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 

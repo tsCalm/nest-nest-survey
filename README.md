@@ -79,6 +79,8 @@ old-nest-survey의 개선 버전
 
 - survey seed data 3천개 만들기 (설문지당 질문 5개, 질문당 선택지 4개로 통일) [바로가기](https://hssm93.tistory.com/entry/nestjs-typeorm-seeder-faker-seeding)
 
+- BaseEntity, CommonValidateService 제작
+
 - 성능 테스트, 부하테스트 진행하고 문서화하기
 
 - 배포 테스트 진행하기

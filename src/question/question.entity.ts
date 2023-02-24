@@ -7,14 +7,14 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { Response } from '../response/response.entity';
+import { Response } from '../respondent-res/response.entity';
 import { Option } from 'src/option/option.entity';
+import { BaseEntity } from '../common/base-entity';
 
-@Entity()
-export class Question {
-  @PrimaryGeneratedColumn()
-  id: number;
-
+@Entity({
+  name: 'question',
+})
+export class Question extends BaseEntity {
   @Column({ type: 'tinyint', comment: '질문 번호' })
   question_number: number;
 

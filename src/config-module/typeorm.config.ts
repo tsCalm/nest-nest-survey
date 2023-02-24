@@ -19,7 +19,7 @@ class TypeOrmConfig {
       database: configService.get('DB_NAME'),
       entities: [join(__dirname, '../**/*.entity.js')],
       synchronize: true,
-      logging: false,
+      logging: true,
       autoLoadEntities: false,
     };
   }
