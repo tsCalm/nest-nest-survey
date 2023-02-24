@@ -77,6 +77,8 @@ old-nest-survey의 개선 버전
 
   3. 테스트 케이스 통과할 수 있도록 구현 [바로가기](https://hssm93.tistory.com/entry/13-NestJs-%EC%84%A4%EB%AC%B8%EC%A1%B0%EC%82%AC-%EB%AF%B8%EB%8B%88-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8%EB%A5%BC-%ED%86%B5%EA%B3%BC%ED%95%A0-%EC%88%98-%EC%9E%88%EB%8F%84%EB%A1%9D-service-%EA%B5%AC%ED%98%84)
 
+- controller QueryString [바로가기](https://hssm93.tistory.com/entry/NestJs-Controller-Query-Pipe-%EA%B8%B0%EB%A1%9D)
+
 - survey seed data 3천개 만들기 (설문지당 질문 5개, 질문당 선택지 4개로 통일) [바로가기](https://hssm93.tistory.com/entry/nestjs-typeorm-seeder-faker-seeding)
 
 - 엔티티에서 공통적으로 사용되는 column의 집합인 BaseEntity 추상 클래스로 선언 후 적용하기 [바로가기](https://hssm93.tistory.com/entry/NestJs-TypeOrm-%EC%97%94%ED%8B%B0%ED%8B%B0-%EA%B3%B5%ED%86%B5-%EC%BB%AC%EB%9F%BC-%EA%B4%80%EB%A6%AC)

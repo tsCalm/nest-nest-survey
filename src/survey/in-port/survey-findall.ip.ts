@@ -1,7 +1,9 @@
+import { SORT_OPTION } from 'src/common/enum';
+
 export type SurveyFindAllInPortInputDto = {
   page: number;
   size: number;
-  sort: 'ASC' | 'DESC';
+  sort: SORT_OPTION;
 };
 
 export type SurveyFindAllInPortOutputDto = Array<{

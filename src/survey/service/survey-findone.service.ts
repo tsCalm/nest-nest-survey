@@ -16,7 +16,7 @@ export class SurveyFindOneService implements FindOneSurveyInPort {
     private readonly findOneSurveyOutPort: FindOneSurveyOutPort,
   ) {}
 
-  execute(
+  async execute(
     params: SurveyFindOneInPortInputDto,
   ): Promise<SurveyFindOneInPortOutputDto> {
     return this.findOneSurveyOutPort.execute(params);
