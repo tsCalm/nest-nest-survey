@@ -82,7 +82,8 @@ old-nest-survey의 개선 버전
 - survey seed data 3천개 만들기 (설문지당 질문 5개, 질문당 선택지 4개로 통일) [바로가기](https://hssm93.tistory.com/entry/nestjs-typeorm-seeder-faker-seeding)
 
 - 엔티티에서 공통적으로 사용되는 column의 집합인 BaseEntity 추상 클래스로 선언 후 적용하기 [바로가기](https://hssm93.tistory.com/entry/NestJs-TypeOrm-%EC%97%94%ED%8B%B0%ED%8B%B0-%EA%B3%B5%ED%86%B5-%EC%BB%AC%EB%9F%BC-%EA%B4%80%EB%A6%AC)
-- CommonValidateService 제작
+
+- ErrorController, ExceptionFilter 제작 [바로가기](https://hssm93.tistory.com/entry/NestJs-TypeOrm-Response-Type%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B3%A0%EB%AF%BC)
 
 - 성능 테스트, 부하테스트 진행하고 문서화하기
 

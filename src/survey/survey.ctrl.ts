@@ -12,7 +12,7 @@ import {
   Post,
   Query,
 } from '@nestjs/common';
-import { ValidationController } from 'src/common/validation-controller';
+import { ErrorController } from 'src/common/error-controller';
 import { SurveyCreateDto } from './dto/survey-create.dto';
 import { SurveyUpdateDto } from './dto/survey-update.dto';
 import {
@@ -42,7 +42,7 @@ import {
 import { SORT_OPTION } from '../common/enum';
 
 @Controller('survey')
-export class SurveyController extends ValidationController {
+export class SurveyController extends ErrorController {
   constructor(
     @Inject(FINDALL_SURVEY_INBOUND_PORT)
     private readonly findAllSurveyInPort: FindAllSurveyInPort,
@@ -76,28 +76,39 @@ export class SurveyController extends ValidationController {
       size,
       sort,
     });
-    this.findValidate(result, '설문지가 존재하지 않습니다.');
+    this.isEmptyArray(result, '설문지가 존재하지 않습니다.');
     return result;
   }
 
-  @Get('findone/:id')
+  @Get('find/:id')
   async findOne(@Param('id', ParseIntPipe) id: number) {
     const result = await this.findOneSurveyInPort.execute(id);
-    this.findOneValidate(result, `id: ${id} 설문지를 찾을 수 없습니다.`);
+    this.isEmpty(result, `id: ${id} 설문지를 찾을 수 없습니다.`);
     return result;
 
     // return new ResponseClass(result, 200);
   }
 
   @Get('/search')
-  async search() {
+  async search(
+    @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number,
+    @Query('size', new DefaultValuePipe(10), ParseIntPipe) size: number,
+    @Query(
+      'sort',
+      new DefaultValuePipe(SORT_OPTION.ASC),
+      new ParseEnumPipe(SORT_OPTION),
+    )
+    sort: SORT_OPTION,
+    @Query('sort', new DefaultValuePipe(''))
+    keyword: string,
+  ) {
     const result = await this.searchSurveyInPort.execute({
-      keyword: 'test',
-      page: 1,
-      size: 10,
-      sort: 'ASC',
+      keyword,
+      page,
+      size,
+      sort,
     });
-    this.findValidate(result, '설문지가 존재하지 않습니다.');
+    this.isEmptyArray(result, '설문지가 존재하지 않습니다.');
     return result;
   }
 
@@ -105,17 +116,26 @@ export class SurveyController extends ValidationController {
   async create(@Body() surveyCreateDto: SurveyCreateDto) {
     const result = await this.createSurveyInPort.execute(surveyCreateDto);
     // this.queryResultValidate(result);
+    this.isEmpty(result, `설문지 생성에 실패했습니다.`);
     return result;
   }
 
-  @Patch(':id')
-  async update(@Body() surveyUpdateDto: SurveyUpdateDto) {
-    const result = await this.updateSurveyInPort.execute(surveyUpdateDto);
+  @Patch('update/:id')
+  async update(
+    @Body() surveyUpdateDto: SurveyUpdateDto,
+    @Param('id', ParseIntPipe) id: number,
+  ) {
+    // return { ...surveyUpdateDto, id };
+    const result = await this.updateSurveyInPort.execute({
+      ...surveyUpdateDto,
+      id,
+    });
     // this.queryResultValidate(result);
+    this.isEmpty(result, `id: ${id} 설문지를 찾을 수 없습니다.`);
     return result;
   }
 
-  @Delete(':id')
+  @Delete('delete/:id')
   async delete(@Param('id', ParseIntPipe) id: number) {
     const result = await this.deleteSurveyInPort.execute(id);
     // this.queryResultValidate(result);

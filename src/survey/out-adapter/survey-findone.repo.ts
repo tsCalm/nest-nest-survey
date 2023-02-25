@@ -18,6 +18,8 @@ export class FindOneSurveyRepository implements FindOneSurveyOutPort {
     return this.surveyRepo.findOne({
       where: {
         id: params,
+        //@ts-ignore
+        존재하지않는컬럼: 123,
       },
     });
   }
