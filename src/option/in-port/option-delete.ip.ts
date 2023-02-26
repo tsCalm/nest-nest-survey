@@ -1,6 +1,7 @@
-export type OptionDeleteInPortInputDto = number;
+import { OptionDeleteInput, OptionDeleteOutput } from '../types';
 
-export type OptionDeleteInPortOutputDto = number;
+export type OptionDeleteInPortInputDto = OptionDeleteInput;
+export type OptionDeleteInPortOutputDto = OptionDeleteOutput;
 
 // provider token
 export const DELETE_OPTION_INBOUND_PORT = 'DELETE_OPTION_INBOUND_PORT' as const;

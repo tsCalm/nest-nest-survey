@@ -1,15 +1,7 @@
-export type OptionCreateOutPortInputDto = {
-  question_id: number;
-  option_number: number;
-  text: string;
-};
+import { OptionCreateInput, OptionCreateOutput } from '../types';
 
-export type OptionCreateOutPortOutputDto = {
-  id: number;
-  question_id: number;
-  option_number: number;
-  text: string;
-};
+export type OptionCreateOutPortInputDto = OptionCreateInput;
+export type OptionCreateOutPortOutputDto = OptionCreateOutput;
 
 export const CREATE_OPTION_OUTBOUND_PORT =
   'CREATE_OPTION_OUTBOUND_PORT' as const;

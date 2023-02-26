@@ -1,15 +1,7 @@
-export type OptionCreateInPortInputDto = {
-  question_id: number;
-  option_number: number;
-  text: string;
-};
+import { OptionCreateInput, OptionCreateOutput } from '../types';
 
-export type OptionCreateInPortOutputDto = {
-  id: number;
-  question_id: number;
-  option_number: number;
-  text: string;
-};
+export type OptionCreateInPortInputDto = OptionCreateInput;
+export type OptionCreateInPortOutputDto = OptionCreateOutput;
 
 // provider token
 export const CREATE_OPTION_INBOUND_PORT = 'CREATE_OPTION_INBOUND_PORT' as const;
