@@ -19,18 +19,7 @@ import {
   DeleteOptionInPort,
   DELETE_OPTION_INBOUND_PORT,
 } from './in-port/option-delete.ip';
-import {
-  FindAllOptionInPort,
-  FINDALL_OPTION_INBOUND_PORT,
-} from './in-port/option-findall.ip';
-import {
-  FindOneOptionInPort,
-  FINDONE_OPTION_INBOUND_PORT,
-} from './in-port/option-findone.ip';
-import {
-  SearchOptionInPort,
-  SEARCH_OPTION_INBOUND_PORT,
-} from './in-port/option-search.ip';
+
 import {
   UpdateOptionInPort,
   UPDATE_OPTION_INBOUND_PORT,
@@ -39,43 +28,13 @@ import {
 @Controller('option')
 export class OptionController {
   constructor(
-    @Inject(FINDALL_OPTION_INBOUND_PORT)
-    private readonly findAllOptionInPort: FindAllOptionInPort,
-    @Inject(FINDONE_OPTION_INBOUND_PORT)
-    private readonly findOneOptionInPort: FindOneOptionInPort,
     @Inject(CREATE_OPTION_INBOUND_PORT)
     private readonly createOptionInPort: CreateOptionInPort,
     @Inject(UPDATE_OPTION_INBOUND_PORT)
     private readonly updateOptionInPort: UpdateOptionInPort,
     @Inject(DELETE_OPTION_INBOUND_PORT)
     private readonly deleteOptionInPort: DeleteOptionInPort,
-    @Inject(SEARCH_OPTION_INBOUND_PORT)
-    private readonly searchOptionInPort: SearchOptionInPort,
   ) {}
-
-  @Get('')
-  findAll() {
-    return this.findAllOptionInPort.execute({
-      page: 1,
-      size: 10,
-      sort: 'ASC',
-    });
-  }
-
-  @Get(':id/all')
-  findOne(@Param('id', ParseIntPipe) id: number) {
-    return this.findOneOptionInPort.execute(id);
-  }
-
-  @Get('/search')
-  search() {
-    return this.searchOptionInPort.execute({
-      keyword: '선호',
-      page: 1,
-      size: 10,
-      sort: 'ASC',
-    });
-  }
 
   @Post('create')
   create(@Body() surveyCreateDto: OptionCreateDto) {
