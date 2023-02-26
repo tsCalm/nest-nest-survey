@@ -8,7 +8,7 @@ question:
 survey_id를 기준으로 question 및 option을 가져옴 - find
 create, update, delete
 
-quetion: create, update, delete만 있으면 됀다.
+question_opt: create, update, delete만 있으면 됀다.
 
 1. in, out port의 outputDto 타입을 먼저 수정하고 relation을 건다.
 2. rds를 하나 생성한 후 seed data를 넣는다.
