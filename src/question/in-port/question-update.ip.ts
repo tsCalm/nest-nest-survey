@@ -1,18 +1,7 @@
-export type QuestionUpdateInPortInputDto = {
-  id: number;
-  survey_id: number;
-  question_number?: number;
-  text?: string;
-  type?: string;
-};
+import { QuestionUpdateInput, QuestionUpdateOutput } from '../types';
 
-export type QuestionUpdateInPortOutputDto = {
-  id: number;
-  survey_id: number;
-  question_number: number;
-  text: string;
-  type: string;
-};
+export type QuestionUpdateInPortInputDto = QuestionUpdateInput;
+export type QuestionUpdateInPortOutputDto = QuestionUpdateOutput;
 
 // provider token
 export const UPDATE_QUESTION_INBOUND_PORT =

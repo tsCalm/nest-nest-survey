@@ -1,6 +1,8 @@
-export type QuestionDeleteInPortInputDto = number;
+import { QuestionDeleteInput, QuestionDeleteOutput } from '../types';
 
-export type QuestionDeleteInPortOutputDto = number;
+export type QuestionDeleteInPortInputDto = QuestionDeleteInput;
+
+export type QuestionDeleteInPortOutputDto = QuestionDeleteOutput;
 
 // provider token
 export const DELETE_QUESTION_INBOUND_PORT =

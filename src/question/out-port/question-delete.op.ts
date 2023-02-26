@@ -1,6 +1,7 @@
-export type QuestionDeleteOutPortInputDto = number;
+import { QuestionDeleteInput, QuestionDeleteOutput } from '../types';
 
-export type QuestionDeleteOutPortOutputDto = number;
+export type QuestionDeleteOutPortInputDto = QuestionDeleteInput;
+export type QuestionDeleteOutPortOutputDto = QuestionDeleteOutput;
 
 export const DELETE_QUESTION_OUTBOUND_PORT =
   'DELETE_QUESTION_OUTBOUND_PORT' as const;
