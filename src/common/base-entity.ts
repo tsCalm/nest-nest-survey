@@ -5,6 +5,12 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
+export interface IBaseEntity {
+  id: number;
+  created_at: Date;
+  updated_at: Date;
+}
+
 @Entity()
 export abstract class BaseEntity {
   @PrimaryGeneratedColumn()

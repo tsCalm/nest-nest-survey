@@ -13,7 +13,7 @@ export default class RootSeeder implements Seeder {
     const questionFactory = factoryManager.get(Question);
     const optionFactory = factoryManager.get(Option);
 
-    const surveyList = await surveyFactory.saveMany(3000);
+    const surveyList = await surveyFactory.saveMany(10000);
     let questionPendingList = [];
     let optionPendingList = [];
 

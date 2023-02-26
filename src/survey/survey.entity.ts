@@ -9,9 +9,9 @@ export class Survey extends BaseEntity {
   @Column({ comment: '설문지 이름' })
   name: string;
 
-  @Column({ comment: '설문지 설명' })
+  @Column({ type: 'text', comment: '설문지 설명' })
   description: string;
 
   @OneToMany((type) => Question, (question) => question.survey)
-  questions: Question[];
+  question: Question[];
 }

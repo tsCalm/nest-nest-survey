@@ -1,16 +1,8 @@
-import { SORT_OPTION } from 'src/common/enum';
+import { SurveyFindAllInPut, SurveyFindAllOutPut } from '../types';
 
-export type SurveyFindAllInPortInputDto = {
-  page: number;
-  size: number;
-  sort: SORT_OPTION;
-};
+export type SurveyFindAllInPortInputDto = SurveyFindAllInPut;
 
-export type SurveyFindAllInPortOutputDto = Array<{
-  id: number;
-  name: string;
-  description: string;
-}>;
+export type SurveyFindAllInPortOutputDto = SurveyFindAllOutPut;
 
 // provider token
 export const FINDALL_SURVEY_INBOUND_PORT =

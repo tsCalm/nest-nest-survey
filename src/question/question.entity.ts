@@ -27,12 +27,12 @@ export class Question extends BaseEntity {
   @Column({ type: 'int' })
   survey_id: number;
 
-  @ManyToOne((type) => Survey, (survey) => survey.questions)
+  @ManyToOne((type) => Survey, (survey) => survey.question)
   @JoinColumn({ name: 'survey_id' })
   survey: Survey;
 
   @OneToMany((type) => Option, (option) => option.question)
-  option: Option;
+  option: Option[];
 
   @OneToMany((type) => Response, (response) => response.question)
   responses: Response[];

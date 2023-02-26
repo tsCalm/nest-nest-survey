@@ -1,6 +1,7 @@
-export type SurveyDeleteOutPortInputDto = number;
+import { SurveyDelteInPut, SurveyDelteOutPut } from '../types';
 
-export type SurveyDeleteOutPortOutputDto = number;
+export type SurveyDeleteOutPortInputDto = SurveyDelteInPut;
+export type SurveyDeleteOutPortOutputDto = SurveyDelteOutPut;
 
 export const DELETE_SURVEY_OUTBOUND_PORT =
   'DELETE_SURVEY_OUTBOUND_PORT' as const;

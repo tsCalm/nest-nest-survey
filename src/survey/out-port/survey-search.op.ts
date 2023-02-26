@@ -1,15 +1,7 @@
-export type SurveySearchOutPortInputDto = {
-  keyword: string;
-  page: number;
-  size: number;
-  sort: 'ASC' | 'DESC';
-};
+import { SurveySearchInPut, SurveySearchOutPut } from '../types';
 
-export type SurveySearchOutPortOutputDto = Array<{
-  id: number;
-  name: string;
-  description: string;
-}>;
+export type SurveySearchOutPortInputDto = SurveySearchInPut;
+export type SurveySearchOutPortOutputDto = SurveySearchOutPut;
 
 export const SEARCH_SURVEY_OUTBOUND_PORT =
   'SEARCH_SURVEY_OUTBOUND_PORT' as const;

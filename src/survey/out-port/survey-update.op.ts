@@ -1,14 +1,7 @@
-export type SurveyUpdateOutPortInputDto = {
-  id: number;
-  name?: string;
-  description?: string;
-};
+import { SurveyUpdateInPut, SurveyUpdateOutPut } from '../types';
 
-export type SurveyUpdateOutPortOutputDto = {
-  id: number;
-  name: string;
-  description: string;
-};
+export type SurveyUpdateOutPortInputDto = SurveyUpdateInPut;
+export type SurveyUpdateOutPortOutputDto = SurveyUpdateOutPut;
 
 export const UPDATE_SURVEY_OUTBOUND_PORT =
   'UPDATE_SURVEY_OUTBOUND_PORT' as const;

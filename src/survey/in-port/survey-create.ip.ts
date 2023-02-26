@@ -1,13 +1,7 @@
-export type SurveyCreateInPortInputDto = {
-  name: string;
-  description: string;
-};
+import { SurveyCreateInPut, SurveyCreateOutPut } from '../types';
 
-export type SurveyCreateInPortOutputDto = {
-  id: number;
-  name: string;
-  description: string;
-};
+export type SurveyCreateInPortInputDto = SurveyCreateInPut;
+export type SurveyCreateInPortOutputDto = SurveyCreateOutPut;
 
 // provider token
 export const CREATE_SURVEY_INBOUND_PORT = 'CREATE_SURVEY_INBOUND_PORT' as const;

@@ -1,13 +1,7 @@
-export type SurveyCreateOutPortInputDto = {
-  name: string;
-  description: string;
-};
+import { SurveyCreateInPut, SurveyCreateOutPut } from '../types';
 
-export type SurveyCreateOutPortOutputDto = {
-  id: number;
-  name: string;
-  description: string;
-};
+export type SurveyCreateOutPortInputDto = SurveyCreateInPut;
+export type SurveyCreateOutPortOutputDto = SurveyCreateOutPut;
 
 export const CREATE_SURVEY_OUTBOUND_PORT =
   'CREATE_SURVEY_OUTBOUND_PORT' as const;
