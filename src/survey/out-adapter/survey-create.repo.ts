@@ -9,12 +9,12 @@ import { Survey } from '../survey.entity';
 
 export class CreateSurveyRepository implements CreateSurveyOutPort {
   constructor(
-    @InjectRepository(Survey) private readonly surveyRepo: Repository<Survey>,
+    @InjectRepository(Survey) private readonly _surveyRepo: Repository<Survey>,
   ) {}
 
   execute(
     params: SurveyCreateOutPortInputDto,
   ): Promise<SurveyCreateOutPortOutputDto> {
-    return this.surveyRepo.save(params);
+    return this._surveyRepo.save(params);
   }
 }

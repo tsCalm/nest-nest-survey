@@ -9,13 +9,13 @@ import { Survey } from '../survey.entity';
 
 export class FindAllSurveyRepository implements FindAllSurveyOutPort {
   constructor(
-    @InjectRepository(Survey) private readonly surveyRepo: Repository<Survey>,
+    @InjectRepository(Survey) private readonly _surveyRepo: Repository<Survey>,
   ) {}
 
   execute(
     params: SurveyFindAllOutPortInputDto,
   ): Promise<SurveyFindAllOutPortOutputDto> {
-    return this.surveyRepo.find({
+    return this._surveyRepo.find({
       skip: (params.page - 1) * params.size,
       take: params.size,
       order: {

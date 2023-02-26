@@ -9,13 +9,13 @@ import { Survey } from '../survey.entity';
 
 export class SearchSurveyRepository implements SearchSurveyOutPort {
   constructor(
-    @InjectRepository(Survey) private readonly surveyRepo: Repository<Survey>,
+    @InjectRepository(Survey) private readonly _surveyRepo: Repository<Survey>,
   ) {}
 
   execute(
     params: SurveySearchOutPortInputDto,
   ): Promise<SurveySearchOutPortOutputDto> {
-    return this.surveyRepo.find({
+    return this._surveyRepo.find({
       where: {
         name: Like(`%${params.keyword}%`),
       },

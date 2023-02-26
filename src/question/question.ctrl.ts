@@ -30,25 +30,25 @@ import {
 export class QuestionController {
   constructor(
     @Inject(CREATE_QUESTION_INBOUND_PORT)
-    private readonly createQuestionInPort: CreateQuestionInPort,
+    private readonly _createQuestionInPort: CreateQuestionInPort,
     @Inject(UPDATE_QUESTION_INBOUND_PORT)
-    private readonly updateQuestionInPort: UpdateQuestionInPort,
+    private readonly _updateQuestionInPort: UpdateQuestionInPort,
     @Inject(DELETE_QUESTION_INBOUND_PORT)
-    private readonly deleteQuestionInPort: DeleteQuestionInPort,
+    private readonly _deleteQuestionInPort: DeleteQuestionInPort,
   ) {}
 
   @Post('create')
   create(@Body() surveyCreateDto: QuestionCreateDto) {
-    return this.createQuestionInPort.execute(surveyCreateDto);
+    return this._createQuestionInPort.execute(surveyCreateDto);
   }
 
   @Patch(':id')
   update(@Body() surveyUpdateDto: QuestionUpdateDto) {
-    return this.updateQuestionInPort.execute(surveyUpdateDto);
+    return this._updateQuestionInPort.execute(surveyUpdateDto);
   }
 
   @Delete(':id')
   delete(@Param('id', ParseIntPipe) id: number) {
-    return this.deleteQuestionInPort.execute(id);
+    return this._deleteQuestionInPort.execute(id);
   }
 }

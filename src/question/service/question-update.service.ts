@@ -13,12 +13,12 @@ import {
 export class QuestionUpdateService implements UpdateQuestionInPort {
   constructor(
     @Inject(UPDATE_QUESTION_OUTBOUND_PORT)
-    private readonly updateQuestionOutPort: UpdateQuestionOutPort,
+    private readonly _updateQuestionOutPort: UpdateQuestionOutPort,
   ) {}
 
   execute(
     params: QuestionUpdateInPortInputDto,
   ): Promise<QuestionUpdateInPortOutputDto> {
-    return this.updateQuestionOutPort.execute(params);
+    return this._updateQuestionOutPort.execute(params);
   }
 }

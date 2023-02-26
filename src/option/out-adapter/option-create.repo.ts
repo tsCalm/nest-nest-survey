@@ -10,12 +10,12 @@ import {
 export class CreateOptionRepository implements CreateOptionOutPort {
   constructor(
     @InjectRepository(Option)
-    private readonly optionRepo: Repository<Option>,
+    private readonly _optionRepo: Repository<Option>,
   ) {}
 
   execute(
     params: OptionCreateOutPortInputDto,
   ): Promise<OptionCreateOutPortOutputDto> {
-    return this.optionRepo.save(params);
+    return this._optionRepo.save(params);
   }
 }

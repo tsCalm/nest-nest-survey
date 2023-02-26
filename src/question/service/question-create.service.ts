@@ -11,11 +11,11 @@ import { CREATE_QUESTION_OUTBOUND_PORT } from '../out-port/question-create.op';
 export class QuestionCreateService implements CreateQuestionInPort {
   constructor(
     @Inject(CREATE_QUESTION_OUTBOUND_PORT)
-    private readonly createQuestionOutPort: CreateQuestionOutPort,
+    private readonly _createQuestionOutPort: CreateQuestionOutPort,
   ) {}
   execute(
     params: QuestionCreateInPortInputDto,
   ): Promise<QuestionCreateInPortOutputDto> {
-    return this.createQuestionOutPort.execute(params);
+    return this._createQuestionOutPort.execute(params);
   }
 }

@@ -45,17 +45,17 @@ import { SORT_OPTION } from '../common/enum';
 export class SurveyController extends ErrorController {
   constructor(
     @Inject(FINDALL_SURVEY_INBOUND_PORT)
-    private readonly findAllSurveyInPort: FindAllSurveyInPort,
+    private readonly _findAllSurveyInPort: FindAllSurveyInPort,
     @Inject(FINDONE_SURVEY_INBOUND_PORT)
-    private readonly findOneSurveyInPort: FindOneSurveyInPort,
+    private readonly _findOneSurveyInPort: FindOneSurveyInPort,
     @Inject(CREATE_SURVEY_INBOUND_PORT)
-    private readonly createSurveyInPort: CreateSurveyInPort,
+    private readonly _createSurveyInPort: CreateSurveyInPort,
     @Inject(UPDATE_SURVEY_INBOUND_PORT)
-    private readonly updateSurveyInPort: UpdateSurveyInPort,
+    private readonly _updateSurveyInPort: UpdateSurveyInPort,
     @Inject(DELETE_SURVEY_INBOUND_PORT)
-    private readonly deleteSurveyInPort: DeleteSurveyInPort,
+    private readonly _deleteSurveyInPort: DeleteSurveyInPort,
     @Inject(SEARCH_SURVEY_INBOUND_PORT)
-    private readonly searchSurveyInPort: SearchSurveyInPort,
+    private readonly _searchSurveyInPort: SearchSurveyInPort,
   ) {
     super();
   }
@@ -71,7 +71,7 @@ export class SurveyController extends ErrorController {
     )
     sort: SORT_OPTION,
   ) {
-    const result = await this.findAllSurveyInPort.execute({
+    const result = await this._findAllSurveyInPort.execute({
       page,
       size,
       sort,
@@ -82,7 +82,7 @@ export class SurveyController extends ErrorController {
 
   @Get('find/:id')
   async findOne(@Param('id', ParseIntPipe) id: number) {
-    const result = await this.findOneSurveyInPort.execute(id);
+    const result = await this._findOneSurveyInPort.execute(id);
     this.isEmpty(result, `id: ${id} 설문지를 찾을 수 없습니다.`);
     return result;
 
@@ -102,7 +102,7 @@ export class SurveyController extends ErrorController {
     @Query('sort', new DefaultValuePipe(''))
     keyword: string,
   ) {
-    const result = await this.searchSurveyInPort.execute({
+    const result = await this._searchSurveyInPort.execute({
       keyword,
       page,
       size,
@@ -114,7 +114,7 @@ export class SurveyController extends ErrorController {
 
   @Post('create')
   async create(@Body() surveyCreateDto: SurveyCreateDto) {
-    const result = await this.createSurveyInPort.execute(surveyCreateDto);
+    const result = await this._createSurveyInPort.execute(surveyCreateDto);
     // this.queryResultValidate(result);
     this.isEmpty(result, `설문지 생성에 실패했습니다.`);
     return result;
@@ -126,7 +126,7 @@ export class SurveyController extends ErrorController {
     @Param('id', ParseIntPipe) id: number,
   ) {
     // return { ...surveyUpdateDto, id };
-    const result = await this.updateSurveyInPort.execute({
+    const result = await this._updateSurveyInPort.execute({
       ...surveyUpdateDto,
       id,
     });
@@ -137,7 +137,7 @@ export class SurveyController extends ErrorController {
 
   @Delete('delete/:id')
   async delete(@Param('id', ParseIntPipe) id: number) {
-    const result = await this.deleteSurveyInPort.execute(id);
+    const result = await this._deleteSurveyInPort.execute(id);
     // this.queryResultValidate(result);
     return result;
   }

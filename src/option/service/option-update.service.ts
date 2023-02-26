@@ -13,12 +13,12 @@ import {
 export class OptionUpdateService implements UpdateOptionInPort {
   constructor(
     @Inject(UPDATE_OPTION_OUTBOUND_PORT)
-    private readonly updateOptionOutPort: UpdateOptionOutPort,
+    private readonly _updateOptionOutPort: UpdateOptionOutPort,
   ) {}
 
   execute(
     params: OptionUpdateInPortInputDto,
   ): Promise<OptionUpdateInPortOutputDto> {
-    return this.updateOptionOutPort.execute(params);
+    return this._updateOptionOutPort.execute(params);
   }
 }

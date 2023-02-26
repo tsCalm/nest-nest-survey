@@ -13,11 +13,11 @@ import {
 export class SurveyFindAllService implements FindAllSurveyInPort {
   constructor(
     @Inject(FINDALL_SURVEY_OUTBOUND_PORT)
-    private readonly findAllSurveyOutPort: FindAllSurveyOutPort,
+    private readonly _findAllSurveyOutPort: FindAllSurveyOutPort,
   ) {}
   execute(
     params: SurveyFindAllInPortInputDto,
   ): Promise<SurveyFindAllInPortOutputDto> {
-    return this.findAllSurveyOutPort.execute(params);
+    return this._findAllSurveyOutPort.execute(params);
   }
 }

@@ -13,12 +13,12 @@ import {
 export class SurveyUpdateService implements UpdateSurveyInPort {
   constructor(
     @Inject(UPDATE_SURVEY_OUTBOUND_PORT)
-    private readonly updateSurveyOutPort: UpdateSurveyOutPort,
+    private readonly _updateSurveyOutPort: UpdateSurveyOutPort,
   ) {}
 
   execute(
     params: SurveyUpdateInPortInputDto,
   ): Promise<SurveyUpdateInPortOutputDto> {
-    return this.updateSurveyOutPort.execute(params);
+    return this._updateSurveyOutPort.execute(params);
   }
 }

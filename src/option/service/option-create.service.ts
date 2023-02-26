@@ -13,11 +13,11 @@ import {
 export class OptionCreateService implements CreateOptionInPort {
   constructor(
     @Inject(CREATE_OPTION_OUTBOUND_PORT)
-    private readonly createOptionOutPort: CreateOptionOutPort,
+    private readonly _createOptionOutPort: CreateOptionOutPort,
   ) {}
   execute(
     params: OptionCreateInPortInputDto,
   ): Promise<OptionCreateInPortOutputDto> {
-    return this.createOptionOutPort.execute(params);
+    return this._createOptionOutPort.execute(params);
   }
 }

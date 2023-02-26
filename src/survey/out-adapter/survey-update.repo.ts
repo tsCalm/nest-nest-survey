@@ -9,17 +9,17 @@ import { Survey } from '../survey.entity';
 
 export class UpdateSurveyRepository implements UpdateSurveyOutPort {
   constructor(
-    @InjectRepository(Survey) private readonly surveyRepo: Repository<Survey>,
+    @InjectRepository(Survey) private readonly _surveyRepo: Repository<Survey>,
   ) {}
 
   async execute(
     params: SurveyUpdateOutPortInputDto,
   ): Promise<SurveyUpdateOutPortOutputDto> {
-    const findedSurvey = await this.surveyRepo.findOne({
+    const findedSurvey = await this._surveyRepo.findOne({
       where: {
         id: params.id,
       },
     });
-    return this.surveyRepo.save({ ...findedSurvey, ...params });
+    return this._surveyRepo.save({ ...findedSurvey, ...params });
   }
 }

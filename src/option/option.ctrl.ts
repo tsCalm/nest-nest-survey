@@ -29,25 +29,25 @@ import {
 export class OptionController {
   constructor(
     @Inject(CREATE_OPTION_INBOUND_PORT)
-    private readonly createOptionInPort: CreateOptionInPort,
+    private readonly _createOptionInPort: CreateOptionInPort,
     @Inject(UPDATE_OPTION_INBOUND_PORT)
-    private readonly updateOptionInPort: UpdateOptionInPort,
+    private readonly _updateOptionInPort: UpdateOptionInPort,
     @Inject(DELETE_OPTION_INBOUND_PORT)
-    private readonly deleteOptionInPort: DeleteOptionInPort,
+    private readonly _deleteOptionInPort: DeleteOptionInPort,
   ) {}
 
   @Post('create')
   create(@Body() surveyCreateDto: OptionCreateDto) {
-    return this.createOptionInPort.execute(surveyCreateDto);
+    return this._createOptionInPort.execute(surveyCreateDto);
   }
 
   @Patch(':id')
   update(@Body() surveyUpdateDto: OptionUpdateDto) {
-    return this.updateOptionInPort.execute(surveyUpdateDto);
+    return this._updateOptionInPort.execute(surveyUpdateDto);
   }
 
   @Delete(':id')
   delete(@Param('id', ParseIntPipe) id: number) {
-    return this.deleteOptionInPort.execute(id);
+    return this._deleteOptionInPort.execute(id);
   }
 }

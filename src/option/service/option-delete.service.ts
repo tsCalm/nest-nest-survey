@@ -13,12 +13,12 @@ import {
 export class OptionDeleteService implements DeleteOptionInPort {
   constructor(
     @Inject(DELETE_OPTION_OUTBOUND_PORT)
-    private readonly deleteOptionOutPort: DeleteOptionOutPort,
+    private readonly _deleteOptionOutPort: DeleteOptionOutPort,
   ) {}
 
   execute(
     params: OptionDeleteInPortInputDto,
   ): Promise<OptionDeleteInPortOutputDto> {
-    return this.deleteOptionOutPort.execute(params);
+    return this._deleteOptionOutPort.execute(params);
   }
 }

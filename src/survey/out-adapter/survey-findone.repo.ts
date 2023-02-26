@@ -9,13 +9,13 @@ import { Survey } from '../survey.entity';
 
 export class FindOneSurveyRepository implements FindOneSurveyOutPort {
   constructor(
-    @InjectRepository(Survey) private readonly surveyRepo: Repository<Survey>,
+    @InjectRepository(Survey) private readonly _surveyRepo: Repository<Survey>,
   ) {}
 
   execute(
     params: SurveyFindOneOutPortInputDto,
   ): Promise<SurveyFindOneOutPortOutputDto> {
-    return this.surveyRepo.findOne({
+    return this._surveyRepo.findOne({
       where: {
         id: params,
       },

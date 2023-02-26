@@ -9,13 +9,13 @@ import {
 export class DeleteOptionRepository implements DeleteOptionOutPort {
   constructor(
     @InjectRepository(Option)
-    private readonly optionRepo: Repository<Option>,
+    private readonly _optionRepo: Repository<Option>,
   ) {}
 
   async execute(
     params: OptionDeleteOutPortInputDto,
   ): Promise<OptionDeleteOutPortOutputDto> {
-    const result: DeleteResult = await this.optionRepo.delete(params);
+    const result: DeleteResult = await this._optionRepo.delete(params);
     // DeleteResult { raw: [], affected: 1 }
     return result.affected;
   }

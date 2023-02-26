@@ -13,12 +13,12 @@ import {
 export class SurveyDeleteService implements DeleteSurveyInPort {
   constructor(
     @Inject(DELETE_SURVEY_OUTBOUND_PORT)
-    private readonly deleteSurveyOutPort: DeleteSurveyOutPort,
+    private readonly _deleteSurveyOutPort: DeleteSurveyOutPort,
   ) {}
 
   execute(
     params: SurveyDeleteInPortInputDto,
   ): Promise<SurveyDeleteInPortOutputDto> {
-    return this.deleteSurveyOutPort.execute(params);
+    return this._deleteSurveyOutPort.execute(params);
   }
 }

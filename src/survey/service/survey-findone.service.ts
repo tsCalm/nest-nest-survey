@@ -13,12 +13,12 @@ import {
 export class SurveyFindOneService implements FindOneSurveyInPort {
   constructor(
     @Inject(FINDONE_SURVEY_OUTBOUND_PORT)
-    private readonly findOneSurveyOutPort: FindOneSurveyOutPort,
+    private readonly _findOneSurveyOutPort: FindOneSurveyOutPort,
   ) {}
 
   async execute(
     params: SurveyFindOneInPortInputDto,
   ): Promise<SurveyFindOneInPortOutputDto> {
-    return this.findOneSurveyOutPort.execute(params);
+    return this._findOneSurveyOutPort.execute(params);
   }
 }

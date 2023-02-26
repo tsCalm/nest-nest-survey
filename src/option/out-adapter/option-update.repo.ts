@@ -10,17 +10,17 @@ import {
 export class UpdateOptionRepository implements UpdateOptionOutPort {
   constructor(
     @InjectRepository(Option)
-    private readonly questionRepo: Repository<Option>,
+    private readonly _questionRepo: Repository<Option>,
   ) {}
 
   async execute(
     params: OptionUpdateOutPortInputDto,
   ): Promise<OptionUpdateOutPortOutputDto> {
-    const findedOption = await this.questionRepo.findOne({
+    const findedOption = await this._questionRepo.findOne({
       where: {
         id: params.id,
       },
     });
-    return this.questionRepo.save({ ...findedOption, ...params });
+    return this._questionRepo.save({ ...findedOption, ...params });
   }
 }

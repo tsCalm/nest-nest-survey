@@ -13,12 +13,12 @@ import {
 export class QuestionDeleteService implements DeleteQuestionInPort {
   constructor(
     @Inject(DELETE_QUESTION_OUTBOUND_PORT)
-    private readonly deleteQuestionOutPort: DeleteQuestionOutPort,
+    private readonly _deleteQuestionOutPort: DeleteQuestionOutPort,
   ) {}
 
   execute(
     params: QuestionDeleteInPortInputDto,
   ): Promise<QuestionDeleteInPortOutputDto> {
-    return this.deleteQuestionOutPort.execute(params);
+    return this._deleteQuestionOutPort.execute(params);
   }
 }

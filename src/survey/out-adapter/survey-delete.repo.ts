@@ -9,13 +9,13 @@ import { Survey } from '../survey.entity';
 
 export class DeleteSurveyRepository implements DeleteSurveyOutPort {
   constructor(
-    @InjectRepository(Survey) private readonly surveyRepo: Repository<Survey>,
+    @InjectRepository(Survey) private readonly _surveyRepo: Repository<Survey>,
   ) {}
 
   async execute(
     params: SurveyDeleteOutPortInputDto,
   ): Promise<SurveyDeleteOutPortOutputDto> {
-    const result: DeleteResult = await this.surveyRepo.delete(params);
+    const result: DeleteResult = await this._surveyRepo.delete(params);
     // DeleteResult { raw: [], affected: 1 }
     return result.affected;
   }
