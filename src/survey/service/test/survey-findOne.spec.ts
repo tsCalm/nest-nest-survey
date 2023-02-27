@@ -28,6 +28,7 @@ describe('설문지 상세정보를 반환한다.', () => {
     id: 1,
     name: 'test-survey',
     description: 'test-desc',
+    question: [],
   };
   const params: SurveyFindOneInPortInputDto = 1;
   const findAllSurveyService = new SurveyFindOneService(

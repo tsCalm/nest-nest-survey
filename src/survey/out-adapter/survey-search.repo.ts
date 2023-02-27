@@ -12,18 +12,17 @@ export class SearchSurveyRepository implements SearchSurveyOutPort {
     @InjectRepository(Survey) private readonly _surveyRepo: Repository<Survey>,
   ) {}
 
-  execute(
+  async execute(
     params: SurveySearchOutPortInputDto,
   ): Promise<SurveySearchOutPortOutputDto> {
-    return this._surveyRepo.find({
-      where: {
-        name: Like(`%${params.keyword}%`),
-      },
-      skip: (params.page - 1) * params.size,
-      take: params.size,
-      order: {
-        name: params.sort,
-      },
-    });
+    return await this._surveyRepo
+      .createQueryBuilder('survey')
+      .select(['survey.id', 'survey.name', 'survey.description'])
+      .where(`MATCH(survey.name) AGAINST ('${params.keyword}' IN BOOLEAN MODE)`)
+      // .where(`survey.name like "%${params.keyword}%"`)
+      .skip((params.page - 1) * params.size)
+      .take(params.size)
+      .orderBy('survey.name', params.sort)
+      .getManyAndCount();
   }
 }

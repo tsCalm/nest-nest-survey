@@ -1,8 +1,8 @@
 import { ConfigService } from '@nestjs/config';
 import { config } from 'dotenv';
 import { DataSource, DataSourceOptions } from 'typeorm';
-import { SeederOptions } from 'typeorm-extension';
-config();
+import { SeederOptions, setDataSource } from 'typeorm-extension';
+config({ path: '.env.dev' });
 
 const configService = new ConfigService();
 const option: DataSourceOptions & SeederOptions = {
@@ -20,4 +20,5 @@ const option: DataSourceOptions & SeederOptions = {
   // migrations: ['src/database/migrations/*.ts'],
   // migrationsTableName: 'migrations',
 };
+// const dataSource = new DataSource(option);
 export default new DataSource(option);

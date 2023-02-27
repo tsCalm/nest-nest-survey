@@ -16,9 +16,10 @@ export type SurveySearchInPut = {
   keyword: string;
 };
 
-export type SurveySearchOutPut = Array<
-  Omit<Survey, 'created_at' | 'updated_at' | 'question'>
->;
+export type SurveySearchOutPut = [
+  Array<Omit<Survey, 'created_at' | 'updated_at' | 'question'>>,
+  number,
+];
 
 //findone
 export type SurveyFindOneInPut = number;

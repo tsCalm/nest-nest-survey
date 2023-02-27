@@ -8,6 +8,7 @@ import {
   SurveyFindAllInPortOutputDto,
 } from '../../in-port/survey-findall.ip';
 import { SurveyFindAllService } from '../survey-findall.service';
+import { SORT_OPTION } from '../../../common/enum';
 
 class MockFindAllOutPort implements FindAllSurveyOutPort {
   private readonly result: SurveyFindAllOutPortOutputDto;
@@ -51,7 +52,7 @@ describe('설문지 리스트를 반환한다.', () => {
   const params: SurveyFindAllInPortInputDto = {
     page: 1,
     size: 3,
-    sort: 'ASC',
+    sort: SORT_OPTION.ASC,
   };
   const findAllSurveyService = new SurveyFindAllService(
     new MockFindAllOutPort(surveyList),

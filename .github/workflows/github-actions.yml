@@ -50,6 +50,18 @@ jobs:
         with:
           node-version: 16.19.0
 
+      # # Create .env file
+      # - name: Create env file
+      #   run: |
+      #     touch .env.prod
+      #     echo DB_HOST=${{ secrets.DB_HOST }} >> .env.prod
+      #     echo DB_PORT=${{ secrets.DB_PORT }} >> .env.prod
+      #     echo DB_USERNAME=${{ secrets.DB_USERNAME }} >> .env.prod
+      #     echo DB_PASSWORD=${{ secrets.DB_PASSWORD }} >> .env.prod
+      #     echo DB_NAME=${{ secrets.DB_NAME }} >> .env.prod
+      #     echo JWT_ACCESS_TOKEN_SECRET=${{ secrets.JWT_ACCESS_TOKEN_SECRET }} >> .env.prod
+      #     cat .env.prod
+
       - name: Install Dependencies
         run: npm install
 

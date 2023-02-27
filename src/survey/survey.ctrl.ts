@@ -99,7 +99,7 @@ export class SurveyController extends ErrorController {
       new ParseEnumPipe(SORT_OPTION),
     )
     sort: SORT_OPTION,
-    @Query('sort', new DefaultValuePipe(''))
+    @Query('keyword', new DefaultValuePipe(''))
     keyword: string,
   ) {
     const result = await this._searchSurveyInPort.execute({
@@ -108,7 +108,7 @@ export class SurveyController extends ErrorController {
       size,
       sort,
     });
-    this.isEmptyArray(result, '설문지가 존재하지 않습니다.');
+    this.isEmptyArray(result[0], '설문지가 존재하지 않습니다.');
     return result;
   }
 
