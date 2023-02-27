@@ -8,7 +8,7 @@ import {
   SurveySearchInPortInputDto,
   SurveySearchInPortOutputDto,
 } from '../../in-port/survey-search.ip';
-import { SurveySearchService } from '../survey-Search.service';
+import { SurveySearchService } from '../survey-search.service';
 
 class MockSearchOutPort implements SearchSurveyOutPort {
   private readonly result: SurveySearchOutPortOutputDto;
