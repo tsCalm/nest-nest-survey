@@ -24,5 +24,14 @@ export class SearchSurveyRepository implements SearchSurveyOutPort {
       .take(params.size)
       .orderBy('survey.name', params.sort)
       .getManyAndCount();
+    // return await this._surveyRepo
+    //   .createQueryBuilder('s')
+    //   .select(['s.id', 's.name', 's.description'])
+    //   .where(`s.name like "%${params.keyword}%"`)
+    //   // .where(`s.name like "%${params.keyword}%"`)
+    //   .skip((params.page - 1) * params.size)
+    //   .take(params.size)
+    //   .orderBy('s.name', params.sort)
+    //   .getManyAndCount();
   }
 }
