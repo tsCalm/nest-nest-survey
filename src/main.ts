@@ -1,9 +1,14 @@
 import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
+import {
+  DocumentBuilder,
+  SwaggerDocumentOptions,
+  SwaggerModule,
+} from '@nestjs/swagger';
 import { AppModule } from './app.module';
-import { TypeOrmExceptionFilter } from './common/filter/typeorm-exception.filter';
 import { TypeExceptionFilter } from './common/filter/type-exception.filter';
-import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { TypeOrmExceptionFilter } from './common/filter/typeorm-exception.filter';
+import { ResObj, ResObjList } from './common/swagger';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -14,8 +19,12 @@ async function bootstrap() {
     .setTitle('설문조사 스웨거')
     .setDescription('api 설명서')
     .setVersion('1.0')
+
     .build();
-  const document = SwaggerModule.createDocument(app, config);
+  const options: SwaggerDocumentOptions = {
+    extraModels: [ResObjList, ResObj],
+  };
+  const document = SwaggerModule.createDocument(app, config, options);
   SwaggerModule.setup('api', app, document);
   await app.listen(3000).then(async () => {
     console.log(`port: ${3000} server start!!`);

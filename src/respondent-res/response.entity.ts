@@ -8,21 +8,22 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { BaseEntity } from '../common/base-entity';
+import { ApiProperty } from '@nestjs/swagger';
 
 @Entity({
   name: 'respondent_res',
 })
 export class Response extends BaseEntity {
-  @PrimaryGeneratedColumn()
-  id: number;
-
   @Column({ type: 'varchar', comment: '유저 응답' })
+  @ApiProperty()
   answer: string;
 
   @Column({ type: 'int' })
+  @ApiProperty()
   question_id: number;
 
   @Column({ type: 'int' })
+  @ApiProperty()
   respondent_id: number;
 
   @ManyToOne((type) => Question, (question) => question.responses)
