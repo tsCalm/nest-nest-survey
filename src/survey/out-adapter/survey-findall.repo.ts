@@ -15,7 +15,7 @@ export class FindAllSurveyRepository implements FindAllSurveyOutPort {
   execute(
     params: SurveyFindAllOutPortInputDto,
   ): Promise<SurveyFindAllOutPortOutputDto> {
-    return this._surveyRepo.find({
+    return this._surveyRepo.findAndCount({
       skip: (params.page - 1) * params.size,
       take: params.size,
       order: {

@@ -1,15 +1,7 @@
-export type RespondentSearchOutPortInputDto = {
-  keyword: string;
-  page: number;
-  size: number;
-  sort: 'ASC' | 'DESC';
-};
+import { RespondentSearchInPut, RespondentSearchOutPut } from '../types';
 
-export type RespondentSearchOutPortOutputDto = Array<{
-  id: number;
-  name: string;
-  email: string;
-}>;
+export type RespondentSearchOutPortInputDto = RespondentSearchInPut;
+export type RespondentSearchOutPortOutputDto = RespondentSearchOutPut;
 
 export const SEARCH_RESPONDENT_OUTBOUND_PORT =
   'SEARCH_RESPONDENT_OUTBOUND_PORT' as const;

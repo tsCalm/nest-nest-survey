@@ -1,9 +1,7 @@
 import {
-  BadRequestException,
   InternalServerErrorException,
   NotFoundException,
 } from '@nestjs/common';
-import { QueryResult } from 'typeorm';
 
 export abstract class ErrorController {
   isEmptyArray(arr: Array<object>, msg: string): void {

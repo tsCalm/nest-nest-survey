@@ -13,11 +13,11 @@ import {
 export class RespondentFindAllService implements FindAllRespondentInPort {
   constructor(
     @Inject(FINDALL_RESPONDENT_OUTBOUND_PORT)
-    private readonly findAllRespondentOutPort: FindAllRespondentOutPort,
+    private readonly _findAllRespondentOutPort: FindAllRespondentOutPort,
   ) {}
   execute(
     params: RespondentFindAllInPortInputDto,
   ): Promise<RespondentFindAllInPortOutputDto> {
-    return this.findAllRespondentOutPort.execute(params);
+    return this._findAllRespondentOutPort.execute(params);
   }
 }

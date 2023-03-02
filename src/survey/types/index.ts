@@ -4,9 +4,10 @@ import { Survey } from '../survey.entity';
 
 //findall
 export type SurveyFindAllInPut = Omit<SurveySearchInPut, 'keyword'>;
-export type SurveyFindAllOutPut = Array<
-  Omit<Survey, 'created_at' | 'updated_at' | 'question'>
->;
+export type SurveyFindAllOutPut = [
+  Array<Omit<Survey, 'created_at' | 'updated_at' | 'question'>>,
+  number,
+];
 
 //search
 export type SurveySearchInPut = {

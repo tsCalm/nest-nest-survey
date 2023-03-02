@@ -42,12 +42,18 @@ export class QuestionController {
     return this._createQuestionInPort.execute(surveyCreateDto);
   }
 
-  @Patch(':id')
-  update(@Body() surveyUpdateDto: QuestionUpdateDto) {
-    return this._updateQuestionInPort.execute(surveyUpdateDto);
+  @Patch('update/:id')
+  update(
+    @Body() surveyUpdateDto: QuestionUpdateDto,
+    @Param('id', ParseIntPipe) id: number,
+  ) {
+    return this._updateQuestionInPort.execute({
+      ...surveyUpdateDto,
+      id,
+    });
   }
 
-  @Delete(':id')
+  @Delete('delete/:id')
   delete(@Param('id', ParseIntPipe) id: number) {
     return this._deleteQuestionInPort.execute(id);
   }

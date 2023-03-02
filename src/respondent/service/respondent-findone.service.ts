@@ -13,12 +13,12 @@ import {
 export class RespondentFindOneService implements FindOneRespondentInPort {
   constructor(
     @Inject(FINDONE_RESPONDENT_OUTBOUND_PORT)
-    private readonly findOneRespondentOutPort: FindOneRespondentOutPort,
+    private readonly _findOneRespondentOutPort: FindOneRespondentOutPort,
   ) {}
 
   execute(
     params: RespondentFindOneInPortInputDto,
   ): Promise<RespondentFindOneInPortOutputDto> {
-    return this.findOneRespondentOutPort.execute(params);
+    return this._findOneRespondentOutPort.execute(params);
   }
 }

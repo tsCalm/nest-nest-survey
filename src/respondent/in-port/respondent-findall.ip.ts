@@ -1,14 +1,7 @@
-export type RespondentFindAllInPortInputDto = {
-  page: number;
-  size: number;
-  sort: 'ASC' | 'DESC';
-};
+import { RespondentFindAllInPut, RespondentFindAllOutPut } from '../types';
 
-export type RespondentFindAllInPortOutputDto = Array<{
-  id: number;
-  name: string;
-  email: string;
-}>;
+export type RespondentFindAllInPortInputDto = RespondentFindAllInPut;
+export type RespondentFindAllInPortOutputDto = RespondentFindAllOutPut;
 
 // provider token
 export const FINDALL_RESPONDENT_INBOUND_PORT =

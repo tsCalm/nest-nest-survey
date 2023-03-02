@@ -1,10 +1,7 @@
-export type RespondentFindOneInPortInputDto = number;
+import { RespondentFindOneInPut, RespondentFindOneOutPut } from '../types';
 
-export type RespondentFindOneInPortOutputDto = {
-  id: number;
-  name: string;
-  email: string;
-};
+export type RespondentFindOneInPortInputDto = RespondentFindOneInPut;
+export type RespondentFindOneInPortOutputDto = RespondentFindOneOutPut;
 
 // provider token
 export const FINDONE_RESPONDENT_INBOUND_PORT =

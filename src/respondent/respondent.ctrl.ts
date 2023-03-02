@@ -1,12 +1,17 @@
 import {
   Body,
   Controller,
+  DefaultValuePipe,
   Get,
   Inject,
   Param,
+  ParseEnumPipe,
   ParseIntPipe,
   Post,
+  Query,
 } from '@nestjs/common';
+import { SORT_OPTION } from 'src/common/enum';
+import { ErrorController } from 'src/common/error-controller';
 import { RespondentCreateDto } from './dto/respondent-create.dto';
 import {
   CreateRespondentInPort,
@@ -26,44 +31,70 @@ import {
 } from './in-port/respondent-search.ip';
 
 @Controller('respondent')
-export class RespondentController {
+export class RespondentController extends ErrorController {
   constructor(
     @Inject(FINDALL_RESPONDENT_INBOUND_PORT)
-    private readonly findAllRespondentInPort: FindAllRespondentInPort,
+    private readonly _findAllRespondentInPort: FindAllRespondentInPort,
     @Inject(FINDONE_RESPONDENT_INBOUND_PORT)
-    private readonly findOneRespondentInPort: FindOneRespondentInPort,
+    private readonly _findOneRespondentInPort: FindOneRespondentInPort,
     @Inject(CREATE_RESPONDENT_INBOUND_PORT)
-    private readonly createRespondentInPort: CreateRespondentInPort,
+    private readonly _createRespondentInPort: CreateRespondentInPort,
     @Inject(SEARCH_RESPONDENT_INBOUND_PORT)
-    private readonly searchRespondentInPort: SearchRespondentInPort,
-  ) {}
-
-  @Get('')
-  findAll() {
-    return this.findAllRespondentInPort.execute({
-      page: 1,
-      size: 10,
-      sort: 'ASC',
-    });
+    private readonly _searchRespondentInPort: SearchRespondentInPort,
+  ) {
+    super();
   }
 
-  @Get(':id/all')
-  findOne(@Param('id', ParseIntPipe) id: number) {
-    return this.findOneRespondentInPort.execute(id);
+  @Get('find')
+  async findAll(
+    @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number,
+    @Query('size', new DefaultValuePipe(10), ParseIntPipe) size: number,
+    @Query(
+      'sort',
+      new DefaultValuePipe(SORT_OPTION.ASC),
+      new ParseEnumPipe(SORT_OPTION),
+    )
+    sort: SORT_OPTION,
+  ) {
+    const result = await this._findAllRespondentInPort.execute({
+      page,
+      size,
+      sort,
+    });
+    this.isEmptyArray(result[0], '설문참여 유저가 존재하지 않습니다.');
+    return result;
+  }
+
+  @Get('find/:id')
+  async findOne(@Param('id', ParseIntPipe) id: number) {
+    const result = await this._findOneRespondentInPort.execute(id);
+    this.isEmpty(result, `id: ${id} 설문참여 유저를 찾을 수 없습니다.`);
+    return result;
   }
 
   @Get('/search')
-  search() {
-    return this.searchRespondentInPort.execute({
-      keyword: '선호',
-      page: 1,
-      size: 10,
-      sort: 'ASC',
+  search(
+    @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number,
+    @Query('size', new DefaultValuePipe(10), ParseIntPipe) size: number,
+    @Query(
+      'sort',
+      new DefaultValuePipe(SORT_OPTION.ASC),
+      new ParseEnumPipe(SORT_OPTION),
+    )
+    sort: SORT_OPTION,
+    @Query('keyword', new DefaultValuePipe(''))
+    keyword: string,
+  ) {
+    return this._searchRespondentInPort.execute({
+      keyword,
+      page,
+      size,
+      sort,
     });
   }
 
   @Post('create')
   create(@Body() surveyCreateDto: RespondentCreateDto) {
-    return this.createRespondentInPort.execute(surveyCreateDto);
+    return this._createRespondentInPort.execute(surveyCreateDto);
   }
 }

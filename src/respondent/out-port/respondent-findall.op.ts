@@ -1,14 +1,7 @@
-export type RespondentFindAllOutPortInputDto = {
-  page: number;
-  size: number;
-  sort: 'ASC' | 'DESC';
-};
+import { RespondentFindAllInPut, RespondentFindAllOutPut } from '../types';
 
-export type RespondentFindAllOutPortOutputDto = Array<{
-  id: number;
-  name: string;
-  email: string;
-}>;
+export type RespondentFindAllOutPortInputDto = RespondentFindAllInPut;
+export type RespondentFindAllOutPortOutputDto = RespondentFindAllOutPut;
 
 export const FINDALL_RESPONDENT_OUTBOUND_PORT =
   'FINDALL_RESPONDENT_OUTBOUND_PORT' as const;

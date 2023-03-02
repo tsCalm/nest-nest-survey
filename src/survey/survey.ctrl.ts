@@ -76,7 +76,7 @@ export class SurveyController extends ErrorController {
       size,
       sort,
     });
-    this.isEmptyArray(result, '설문지가 존재하지 않습니다.');
+    this.isEmptyArray(result[0], '설문지가 존재하지 않습니다.');
     return result;
   }
 
@@ -115,7 +115,6 @@ export class SurveyController extends ErrorController {
   @Post('create')
   async create(@Body() surveyCreateDto: SurveyCreateDto) {
     const result = await this._createSurveyInPort.execute(surveyCreateDto);
-    // this.queryResultValidate(result);
     this.isEmpty(result, `설문지 생성에 실패했습니다.`);
     return result;
   }
@@ -125,12 +124,10 @@ export class SurveyController extends ErrorController {
     @Body() surveyUpdateDto: SurveyUpdateDto,
     @Param('id', ParseIntPipe) id: number,
   ) {
-    // return { ...surveyUpdateDto, id };
     const result = await this._updateSurveyInPort.execute({
       ...surveyUpdateDto,
       id,
     });
-    // this.queryResultValidate(result);
     this.isEmpty(result, `id: ${id} 설문지를 찾을 수 없습니다.`);
     return result;
   }

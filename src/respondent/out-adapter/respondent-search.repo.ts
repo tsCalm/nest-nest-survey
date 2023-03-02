@@ -10,13 +10,13 @@ import { Respondent } from '../respondent.entity';
 export class SearchRespondentRepository implements SearchRespondentOutPort {
   constructor(
     @InjectRepository(Respondent)
-    private readonly questionRepo: Repository<Respondent>,
+    private readonly _respondentRepo: Repository<Respondent>,
   ) {}
 
   execute(
     params: RespondentSearchOutPortInputDto,
   ): Promise<RespondentSearchOutPortOutputDto> {
-    return this.questionRepo.find({
+    return this._respondentRepo.findAndCount({
       where: {
         name: Like(`%${params.keyword}%`),
       },

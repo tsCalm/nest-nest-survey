@@ -1,13 +1,7 @@
-export type RespondentCreateOutPortInputDto = {
-  name: string;
-  email: string;
-};
+import { RespondentCreateInPut, RespondentCreateOutPut } from '../types';
 
-export type RespondentCreateOutPortOutputDto = {
-  id: number;
-  name: string;
-  email: string;
-};
+export type RespondentCreateOutPortInputDto = RespondentCreateInPut;
+export type RespondentCreateOutPortOutputDto = RespondentCreateOutPut;
 
 export const CREATE_RESPONDENT_OUTBOUND_PORT =
   'CREATE_RESPONDENT_OUTBOUND_PORT' as const;

@@ -9,12 +9,12 @@ import { Response } from '../response.entity';
 export class CreateResponseRepository implements CreateResponseOutPort {
   constructor(
     @InjectRepository(Response)
-    private readonly respondentRepo: Repository<Response>,
+    private readonly _resRepo: Repository<Response>,
   ) {}
 
-  execute(
+  async execute(
     params: ResponseCreateOutPortInputDto,
   ): Promise<ResponseCreateOutPortOutputDto> {
-    return this.respondentRepo.save(params);
+    return await this._resRepo.save(params);
   }
 }

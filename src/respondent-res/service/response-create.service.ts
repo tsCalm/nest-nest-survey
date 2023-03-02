@@ -13,11 +13,11 @@ import {
 export class ResponseCreateService implements CreateResponseInPort {
   constructor(
     @Inject(CREATE_RESPONSE_OUTBOUND_PORT)
-    private readonly createResponseOutPort: CreateResponseOutPort,
+    private readonly _createResponseOutPort: CreateResponseOutPort,
   ) {}
   execute(
     params: ResponseCreateInPortInputDto,
   ): Promise<ResponseCreateInPortOutputDto> {
-    return this.createResponseOutPort.execute(params);
+    return this._createResponseOutPort.execute(params);
   }
 }

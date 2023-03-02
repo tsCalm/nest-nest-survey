@@ -13,12 +13,12 @@ import {
 export class RespondentSearchService implements SearchRespondentInPort {
   constructor(
     @Inject(SEARCH_RESPONDENT_OUTBOUND_PORT)
-    private readonly searchRespondentOutPort: SearchRespondentOutPort,
+    private readonly _searchRespondentOutPort: SearchRespondentOutPort,
   ) {}
 
   execute(
     params: RespondentSearchInPortInputDto,
   ): Promise<RespondentSearchInPortOutputDto> {
-    return this.searchRespondentOutPort.execute(params);
+    return this._searchRespondentOutPort.execute(params);
   }
 }

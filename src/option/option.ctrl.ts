@@ -41,9 +41,15 @@ export class OptionController {
     return this._createOptionInPort.execute(surveyCreateDto);
   }
 
-  @Patch(':id')
-  update(@Body() surveyUpdateDto: OptionUpdateDto) {
-    return this._updateOptionInPort.execute(surveyUpdateDto);
+  @Patch('update/:id')
+  update(
+    @Body() surveyUpdateDto: OptionUpdateDto,
+    @Param('id', ParseIntPipe) id: number,
+  ) {
+    return this._updateOptionInPort.execute({
+      ...surveyUpdateDto,
+      id,
+    });
   }
 
   @Delete(':id')

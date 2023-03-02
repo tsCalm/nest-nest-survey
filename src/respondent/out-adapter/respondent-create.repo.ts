@@ -10,12 +10,12 @@ import { Respondent } from '../respondent.entity';
 export class CreateRespondentRepository implements CreateRespondentOutPort {
   constructor(
     @InjectRepository(Respondent)
-    private readonly respondentRepo: Repository<Respondent>,
+    private readonly _respondentRepo: Repository<Respondent>,
   ) {}
 
   execute(
     params: RespondentCreateOutPortInputDto,
   ): Promise<RespondentCreateOutPortOutputDto> {
-    return this.respondentRepo.save(params);
+    return this._respondentRepo.save(params);
   }
 }
