@@ -40,8 +40,10 @@ import {
   UPDATE_SURVEY_INBOUND_PORT,
 } from './in-port/survey-update.ip';
 import { SORT_OPTION } from '../common/enum';
+import { ApiParam, ApiQuery, ApiTags } from '@nestjs/swagger';
 
 @Controller('survey')
+@ApiTags('survey')
 export class SurveyController extends ErrorController {
   constructor(
     @Inject(FINDALL_SURVEY_INBOUND_PORT)
@@ -61,6 +63,9 @@ export class SurveyController extends ErrorController {
   }
 
   @Get('find')
+  @ApiQuery({ name: 'page', required: false })
+  @ApiQuery({ name: 'size', required: false })
+  @ApiQuery({ name: 'sort', enum: SORT_OPTION, required: false })
   async findAll(
     @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number,
     @Query('size', new DefaultValuePipe(10), ParseIntPipe) size: number,
@@ -81,6 +86,7 @@ export class SurveyController extends ErrorController {
   }
 
   @Get('find/:id')
+  @ApiParam({ name: 'id', required: true })
   async findOne(@Param('id', ParseIntPipe) id: number) {
     const result = await this._findOneSurveyInPort.execute(id);
     this.isEmpty(result, `id: ${id} 설문지를 찾을 수 없습니다.`);
@@ -90,6 +96,10 @@ export class SurveyController extends ErrorController {
   }
 
   @Get('/search')
+  @ApiQuery({ name: 'page', required: false })
+  @ApiQuery({ name: 'size', required: false })
+  @ApiQuery({ name: 'sort', enum: SORT_OPTION, required: false })
+  @ApiQuery({ name: 'keyword', required: false })
   async search(
     @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number,
     @Query('size', new DefaultValuePipe(10), ParseIntPipe) size: number,
@@ -120,6 +130,7 @@ export class SurveyController extends ErrorController {
   }
 
   @Patch('update/:id')
+  @ApiParam({ name: 'id', required: true })
   async update(
     @Body() surveyUpdateDto: SurveyUpdateDto,
     @Param('id', ParseIntPipe) id: number,
@@ -133,6 +144,7 @@ export class SurveyController extends ErrorController {
   }
 
   @Delete('delete/:id')
+  @ApiParam({ name: 'id', required: true })
   async delete(@Param('id', ParseIntPipe) id: number) {
     const result = await this._deleteSurveyInPort.execute(id);
     // this.queryResultValidate(result);
