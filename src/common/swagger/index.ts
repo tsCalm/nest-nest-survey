@@ -1,10 +1,11 @@
 import { applyDecorators, Type } from '@nestjs/common';
-import {
-  ApiExtraModels,
-  ApiOkResponse,
-  ApiProperty,
-  getSchemaPath,
-} from '@nestjs/swagger';
+import { ApiOkResponse, ApiProperty, getSchemaPath } from '@nestjs/swagger';
+
+export class NotFoundRes {
+  status: 404;
+  message: '~~찾을 수 없습니다.';
+  error: 'Not Found';
+}
 
 export class ResObj<T> {
   @ApiProperty()

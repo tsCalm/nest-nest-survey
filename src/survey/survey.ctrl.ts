@@ -12,7 +12,17 @@ import {
   Post,
   Query,
 } from '@nestjs/common';
+import {
+  ApiExtraModels,
+  ApiNotFoundResponse,
+  ApiOperation,
+  ApiParam,
+  ApiQuery,
+  ApiTags,
+} from '@nestjs/swagger';
 import { ErrorController } from 'src/common/error-controller';
+import { NotFoundRes, ResOkObj, ResOkObjList } from 'src/common/swagger';
+import { SORT_OPTION } from '../common/enum';
 import { SurveyCreateDto } from './dto/survey-create.dto';
 import { SurveyUpdateDto } from './dto/survey-update.dto';
 import {
@@ -39,15 +49,6 @@ import {
   UpdateSurveyInPort,
   UPDATE_SURVEY_INBOUND_PORT,
 } from './in-port/survey-update.ip';
-import { SORT_OPTION } from '../common/enum';
-import {
-  ApiExtraModels,
-  ApiOperation,
-  ApiParam,
-  ApiQuery,
-  ApiTags,
-} from '@nestjs/swagger';
-import { ResObj, ResObjList, ResOkObjList } from 'src/common/swagger';
 import { Survey } from './survey.entity';
 
 @Controller('survey')
@@ -75,6 +76,7 @@ export class SurveyController extends ErrorController {
   @ApiQuery({ name: 'page', required: false })
   @ApiQuery({ name: 'size', required: false })
   @ApiQuery({ name: 'sort', enum: SORT_OPTION, required: false })
+  @ApiNotFoundResponse({ description: 'Not Found Error' })
   @ResOkObjList(Survey)
   @ApiOperation({
     summary: '설문지 리스트 요청',
@@ -105,6 +107,7 @@ export class SurveyController extends ErrorController {
     summary: '설문지 상세 요청',
     description: '하나의 설문지에 속한 질문과 선택지 목록을 함께 반환합니다.',
   })
+  @ResOkObj(Survey)
   async findOne(@Param('id', ParseIntPipe) id: number) {
     const result = await this._findOneSurveyInPort.execute(id);
     this.isEmpty(result, `id: ${id} 설문지를 찾을 수 없습니다.`);
