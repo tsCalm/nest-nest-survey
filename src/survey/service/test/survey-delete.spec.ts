@@ -2,7 +2,7 @@ import {
   DeleteSurveyOutPort,
   SurveyDeleteOutPortInputDto,
   SurveyDeleteOutPortOutputDto,
-} from 'src/survey/out-port/survey-delete.op';
+} from '../../../survey/out-port/survey-delete.op';
 import { SurveyDeleteInPortInputDto } from '../../in-port/survey-delete.ip';
 import { SurveyDeleteService } from '../survey-delete.service';
 

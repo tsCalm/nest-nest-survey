@@ -1,12 +1,12 @@
 import {
   ResponseCreateInPortInputDto,
   ResponseCreateInPortOutputDto,
-} from 'src/respondent-res/in-port/response-create.ip';
+} from '../../../respondent-res/in-port/response-create.ip';
 import {
   CreateResponseOutPort,
   ResponseCreateOutPortInputDto,
   ResponseCreateOutPortOutputDto,
-} from 'src/respondent-res/out-port/response-create.op';
+} from '../../../respondent-res/out-port/response-create.op';
 import { ResponseCreateService } from '../response-create.service';
 
 class MockCreateOutPort implements CreateResponseOutPort {

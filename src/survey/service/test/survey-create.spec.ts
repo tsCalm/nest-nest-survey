@@ -2,7 +2,7 @@ import {
   CreateSurveyOutPort,
   SurveyCreateOutPortInputDto,
   SurveyCreateOutPortOutputDto,
-} from 'src/survey/out-port/survey-create.op';
+} from '../../../survey/out-port/survey-create.op';
 import {
   SurveyCreateInPortInputDto,
   SurveyCreateInPortOutputDto,

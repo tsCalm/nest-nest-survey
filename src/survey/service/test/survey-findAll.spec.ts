@@ -2,7 +2,7 @@ import {
   FindAllSurveyOutPort,
   SurveyFindAllOutPortInputDto,
   SurveyFindAllOutPortOutputDto,
-} from 'src/survey/out-port/survey-findall.op';
+} from '../../../survey/out-port/survey-findall.op';
 import {
   SurveyFindAllInPortInputDto,
   SurveyFindAllInPortOutputDto,
@@ -29,24 +29,27 @@ class MockFindAllOutPort implements FindAllSurveyOutPort {
 
 describe('설문지 리스트를 반환한다.', () => {
   const surveyList: SurveyFindAllInPortOutputDto = [
-    {
-      id: 1,
-      name: '당신이 선호하는 백엔드 언어는?',
-      description:
-        '백엔드 개발자가 선호하는 언어를 조사하기 위한 설문지입니다.',
-    },
-    {
-      id: 2,
-      name: '당신이 선호하는 프론트엔드 언어는?',
-      description:
-        '프론트엔드 개발자가 선호하는 언어를 조사하기 위한 설문지입니다.',
-    },
-    {
-      id: 3,
-      name: '당신이 nodejs 개발자를 선택한 이유는?',
-      description:
-        '개발자가 자신이 주력으로 사용한 언어를 선택한 이유를 묻는 설문지입니다.',
-    },
+    [
+      {
+        id: 1,
+        name: '당신이 선호하는 백엔드 언어는?',
+        description:
+          '백엔드 개발자가 선호하는 언어를 조사하기 위한 설문지입니다.',
+      },
+      {
+        id: 2,
+        name: '당신이 선호하는 프론트엔드 언어는?',
+        description:
+          '프론트엔드 개발자가 선호하는 언어를 조사하기 위한 설문지입니다.',
+      },
+      {
+        id: 3,
+        name: '당신이 nodejs 개발자를 선택한 이유는?',
+        description:
+          '개발자가 자신이 주력으로 사용한 언어를 선택한 이유를 묻는 설문지입니다.',
+      },
+    ],
+    3,
   ];
 
   const params: SurveyFindAllInPortInputDto = {

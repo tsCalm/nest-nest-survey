@@ -2,7 +2,7 @@ import {
   FindOneSurveyOutPort,
   SurveyFindOneOutPortInputDto,
   SurveyFindOneOutPortOutputDto,
-} from 'src/survey/out-port/survey-findone.op';
+} from '../../../survey/out-port/survey-findone.op';
 import {
   SurveyFindOneInPortInputDto,
   SurveyFindOneInPortOutputDto,

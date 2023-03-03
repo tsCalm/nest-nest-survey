@@ -1,12 +1,12 @@
 import {
   QuestionCreateInPortInputDto,
   QuestionCreateInPortOutputDto,
-} from 'src/question/in-port/question-create.ip';
+} from '../../../question/in-port/question-create.ip';
 import {
   CreateQuestionOutPort,
   QuestionCreateOutPortInputDto,
   QuestionCreateOutPortOutputDto,
-} from 'src/question/out-port/question-create.op';
+} from '../../../question/out-port/question-create.op';
 import { QuestionCreateService } from '../question-create.service';
 
 class MockCreateOutPort implements CreateQuestionOutPort {

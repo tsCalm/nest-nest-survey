@@ -1,12 +1,13 @@
+import { SORT_OPTION } from '../../../common/enum';
 import {
   RespondentFindAllInPortInputDto,
   RespondentFindAllInPortOutputDto,
-} from 'src/respondent/in-port/respondent-findall.ip';
+} from '../../../respondent/in-port/respondent-findall.ip';
 import {
   FindAllRespondentOutPort,
   RespondentFindAllOutPortInputDto,
   RespondentFindAllOutPortOutputDto,
-} from 'src/respondent/out-port/respondent-findall.op';
+} from '../../../respondent/out-port/respondent-findall.op';
 import { RespondentFindAllService } from '../respondent-findall.service';
 
 class MockFindAllOutPort implements FindAllRespondentOutPort {
@@ -28,27 +29,30 @@ class MockFindAllOutPort implements FindAllRespondentOutPort {
 
 describe('설문참여 유저 리스트', () => {
   const respondentList: RespondentFindAllInPortOutputDto = [
-    {
-      id: 1,
-      name: '홍길동',
-      email: 'gd1600@gmail.com',
-    },
-    {
-      id: 2,
-      name: '김연아',
-      email: 'w_number_one@gmail.com',
-    },
-    {
-      id: 3,
-      name: '손흥민',
-      email: 'k_number_one@gmail.com',
-    },
+    [
+      {
+        id: 1,
+        name: '홍길동',
+        email: 'gd1600@gmail.com',
+      },
+      {
+        id: 2,
+        name: '김연아',
+        email: 'w_number_one@gmail.com',
+      },
+      {
+        id: 3,
+        name: '손흥민',
+        email: 'k_number_one@gmail.com',
+      },
+    ],
+    3,
   ];
 
   const params: RespondentFindAllInPortInputDto = {
     page: 1,
     size: 3,
-    sort: 'ASC',
+    sort: SORT_OPTION.ASC,
   };
   const findAllRespondentService = new RespondentFindAllService(
     new MockFindAllOutPort(respondentList),

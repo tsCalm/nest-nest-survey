@@ -1,12 +1,13 @@
+import { SORT_OPTION } from '../../../common/enum';
 import {
   RespondentSearchInPortInputDto,
   RespondentSearchInPortOutputDto,
-} from 'src/respondent/in-port/respondent-search.ip';
+} from '../../../respondent/in-port/respondent-search.ip';
 import {
   RespondentSearchOutPortInputDto,
   RespondentSearchOutPortOutputDto,
   SearchRespondentOutPort,
-} from 'src/respondent/out-port/respondent-search.op';
+} from '../../../respondent/out-port/respondent-search.op';
 import { RespondentSearchService } from '../respondent-search.service';
 
 class MockSearchOutPort implements SearchRespondentOutPort {
@@ -19,35 +20,39 @@ class MockSearchOutPort implements SearchRespondentOutPort {
   async execute(
     params: RespondentSearchOutPortInputDto,
   ): Promise<RespondentSearchOutPortOutputDto> {
-    return this.result.filter((question) =>
+    const searchResult = this.result[0].filter((question) =>
       question.name.includes(params.keyword),
     );
+    return [searchResult, searchResult.length];
   }
 }
 
 describe('설문 참여 유저 찾기', () => {
   const surveyList: RespondentSearchInPortOutputDto = [
-    {
-      id: 1,
-      name: '홍길동',
-      email: 'gd1600@gmail.com',
-    },
-    {
-      id: 2,
-      name: '김연아',
-      email: 'w_number_one@gmail.com',
-    },
-    {
-      id: 3,
-      name: '손흥민',
-      email: 'k_number_one@gmail.com',
-    },
+    [
+      {
+        id: 1,
+        name: '홍길동',
+        email: 'gd1600@gmail.com',
+      },
+      {
+        id: 2,
+        name: '김연아',
+        email: 'w_number_one@gmail.com',
+      },
+      {
+        id: 3,
+        name: '손흥민',
+        email: 'k_number_one@gmail.com',
+      },
+    ],
+    3,
   ];
 
   const params: RespondentSearchInPortInputDto = {
     page: 1,
     size: 3,
-    sort: 'ASC',
+    sort: SORT_OPTION.ASC,
     keyword: '흥민',
   };
   const SearchRespondentService = new RespondentSearchService(
@@ -57,11 +62,14 @@ describe('설문 참여 유저 찾기', () => {
     const SearchResult = await SearchRespondentService.execute(params);
 
     expect(SearchResult).toStrictEqual([
-      {
-        id: 3,
-        name: '손흥민',
-        email: 'k_number_one@gmail.com',
-      },
+      [
+        {
+          id: 3,
+          name: '손흥민',
+          email: 'k_number_one@gmail.com',
+        },
+      ],
+      1,
     ]);
   });
 });

@@ -1,9 +1,9 @@
-import { QuestionUpdateInPortOutputDto } from 'src/question/in-port/question-update.ip';
+import { QuestionUpdateInPortOutputDto } from '../../../question/in-port/question-update.ip';
 import {
   QuestionUpdateOutPortInputDto,
   QuestionUpdateOutPortOutputDto,
   UpdateQuestionOutPort,
-} from 'src/question/out-port/question-update.op';
+} from '../../../question/out-port/question-update.op';
 import { QuestionUpdateService } from '../question-update.service';
 
 class MockUpdateOutPort implements UpdateQuestionOutPort {

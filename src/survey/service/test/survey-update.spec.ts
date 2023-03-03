@@ -1,9 +1,9 @@
-import { SurveyUpdateInPortOutputDto } from 'src/survey/in-port/survey-update.ip';
+import { SurveyUpdateInPortOutputDto } from '../../../survey/in-port/survey-update.ip';
 import {
   SurveyUpdateOutPortInputDto,
   SurveyUpdateOutPortOutputDto,
   UpdateSurveyOutPort,
-} from 'src/survey/out-port/survey-update.op';
+} from '../../../survey/out-port/survey-update.op';
 import { SurveyUpdateService } from '../survey-update.service';
 
 class MockUpdateOutPort implements UpdateSurveyOutPort {

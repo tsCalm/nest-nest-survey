@@ -2,7 +2,7 @@ import {
   DeleteQuestionOutPort,
   QuestionDeleteOutPortInputDto,
   QuestionDeleteOutPortOutputDto,
-} from 'src/question/out-port/question-delete.op';
+} from '../../../question/out-port/question-delete.op';
 import { QuestionDeleteInPortInputDto } from '../../in-port/question-delete.ip';
 import { QuestionDeleteService } from '../question-delete.service';
 

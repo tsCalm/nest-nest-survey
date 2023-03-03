@@ -3,7 +3,7 @@ import {
   SearchSurveyOutPort,
   SurveySearchOutPortInputDto,
   SurveySearchOutPortOutputDto,
-} from 'src/survey/out-port/survey-search.op';
+} from '../../../survey/out-port/survey-search.op';
 import {
   SurveySearchInPortInputDto,
   SurveySearchInPortOutputDto,

@@ -20,8 +20,8 @@ import {
   ApiQuery,
   ApiTags,
 } from '@nestjs/swagger';
-import { ErrorController } from 'src/common/error-controller';
-import { NotFoundRes, ResOkObj, ResOkObjList } from 'src/common/swagger';
+import { ErrorController } from '../common/error-controller';
+import { NotFoundRes, ResOkObj, ResOkObjList } from '../common/swagger';
 import { SORT_OPTION } from '../common/enum';
 import { SurveyCreateDto } from './dto/survey-create.dto';
 import { SurveyUpdateDto } from './dto/survey-update.dto';

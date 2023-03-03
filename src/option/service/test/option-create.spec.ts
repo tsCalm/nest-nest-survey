@@ -1,12 +1,12 @@
 import {
   OptionCreateInPortInputDto,
   OptionCreateInPortOutputDto,
-} from 'src/option/in-port/option-create.ip';
+} from '../../../option/in-port/option-create.ip';
 import {
   CreateOptionOutPort,
   OptionCreateOutPortInputDto,
   OptionCreateOutPortOutputDto,
-} from 'src/option/out-port/option-create.op';
+} from '../../../option/out-port/option-create.op';
 import { OptionCreateService } from '../option-create.service';
 
 class MockCreateOutPort implements CreateOptionOutPort {

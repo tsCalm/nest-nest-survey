@@ -10,8 +10,8 @@ import {
   Post,
   Query,
 } from '@nestjs/common';
-import { SORT_OPTION } from 'src/common/enum';
-import { ErrorController } from 'src/common/error-controller';
+import { SORT_OPTION } from '../common/enum';
+import { ErrorController } from '../common/error-controller';
 import { RespondentCreateDto } from './dto/respondent-create.dto';
 import {
   CreateRespondentInPort,

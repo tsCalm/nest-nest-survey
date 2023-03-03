@@ -1,12 +1,12 @@
 import {
   RespondentFindOneInPortInputDto,
   RespondentFindOneInPortOutputDto,
-} from 'src/respondent/in-port/respondent-findone.ip';
+} from '../../../respondent/in-port/respondent-findone.ip';
 import {
   FindOneRespondentOutPort,
   RespondentFindOneOutPortInputDto,
   RespondentFindOneOutPortOutputDto,
-} from 'src/respondent/out-port/respondent-findone.op';
+} from '../../../respondent/out-port/respondent-findone.op';
 import { RespondentFindOneService } from '../respondent-findone.service';
 
 class MockFindAllOutPort implements FindOneRespondentOutPort {
@@ -28,6 +28,7 @@ describe('설문 참여 유저', () => {
     id: 1,
     name: '홍길동',
     email: 'gd1600@gmail.com',
+    responses: [],
   };
   const params: RespondentFindOneInPortInputDto = 1;
   const findAllRespondentService = new RespondentFindOneService(

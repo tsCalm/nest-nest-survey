@@ -1,9 +1,9 @@
-import { OptionDeleteInPortInputDto } from 'src/option/in-port/option-delete.ip';
+import { OptionDeleteInPortInputDto } from '../../../option/in-port/option-delete.ip';
 import {
   DeleteOptionOutPort,
   OptionDeleteOutPortInputDto,
   OptionDeleteOutPortOutputDto,
-} from 'src/option/out-port/option-delete.op';
+} from '../../../option/out-port/option-delete.op';
 import { OptionDeleteService } from '../option-delete.service';
 
 type OptionList = Array<{

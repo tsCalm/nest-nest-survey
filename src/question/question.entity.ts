@@ -8,7 +8,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { Response } from '../respondent-res/response.entity';
-import { Option } from 'src/option/option.entity';
+import { Option } from '../option/option.entity';
 import { BaseEntity } from '../common/base-entity';
 import { ApiProperty } from '@nestjs/swagger';
 

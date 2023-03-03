@@ -1,9 +1,9 @@
-import { OptionUpdateInPortOutputDto } from 'src/option/in-port/option-update.ip';
+import { OptionUpdateInPortOutputDto } from '../../../option/in-port/option-update.ip';
 import {
   OptionUpdateOutPortInputDto,
   OptionUpdateOutPortOutputDto,
   UpdateOptionOutPort,
-} from 'src/option/out-port/option-update.op';
+} from '../../../option/out-port/option-update.op';
 import { OptionUpdateService } from '../option-update.service';
 
 class MockUpdateOutPort implements UpdateOptionOutPort {
