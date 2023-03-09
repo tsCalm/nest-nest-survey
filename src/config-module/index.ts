@@ -1,15 +1,15 @@
-import { RedisModule } from '@liaoliaots/nestjs-redis';
+// import { RedisModule } from '@liaoliaots/nestjs-redis';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import envFile from './env.config';
+import envConfig from './env.config';
 import { typeOrmConfigAsync } from './typeorm.config';
-import { redisConfigAsync } from './cache.config';
+// import { redisConfigAsync } from './cache.config';
 
 @Module({
   imports: [
-    envFile,
+    envConfig,
     TypeOrmModule.forRootAsync(typeOrmConfigAsync),
-    RedisModule.forRootAsync(redisConfigAsync),
+    // RedisModule.forRootAsync(redisConfigAsync),
   ],
 })
 export class ConfigModule {}

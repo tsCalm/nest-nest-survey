@@ -7,10 +7,12 @@ import { QuestionModule } from './question/question.module';
 import { OptionModule } from './option/option.module';
 import { RespondentModule } from './respondent/respondent.module';
 import { ResponseModule } from './respondent-res/response.module';
-import { RedisModule } from '@liaoliaots/nestjs-redis';
+import { CustomCacheModule } from './cache-module/cache.module';
+// import { RedisAdapter } from './cache-module/string/adapter/redis-string-get.adapter';
 
 @Module({
   imports: [
+    CustomCacheModule,
     ConfigModule,
     SurveyModule,
     QuestionModule,
@@ -19,6 +21,9 @@ import { RedisModule } from '@liaoliaots/nestjs-redis';
     ResponseModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    // RedisAdapter
+  ],
 })
 export class AppModule {}
