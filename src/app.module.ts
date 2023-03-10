@@ -7,23 +7,20 @@ import { QuestionModule } from './question/question.module';
 import { OptionModule } from './option/option.module';
 import { RespondentModule } from './respondent/respondent.module';
 import { ResponseModule } from './respondent-res/response.module';
-import { CustomCacheModule } from './cache-module/cache.module';
-// import { RedisAdapter } from './cache-module/string/adapter/redis-string-get.adapter';
 
 @Module({
   imports: [
-    CustomCacheModule,
     ConfigModule,
     SurveyModule,
     QuestionModule,
     OptionModule,
     RespondentModule,
     ResponseModule,
+    CacheModule.register({
+      isGlobal: true,
+    }),
   ],
   controllers: [AppController],
-  providers: [
-    AppService,
-    // RedisAdapter
-  ],
+  providers: [AppService],
 })
 export class AppModule {}

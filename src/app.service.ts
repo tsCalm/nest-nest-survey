@@ -14,15 +14,7 @@ import {
 
 @Injectable()
 export class AppService {
-  constructor(
-    @Inject(REDIS_STRING_DEL_OUTBOUND_PORT)
-    private readonly redisStringDelOutPort: RedisStringDelOutPort,
-    @Inject(REDIS_STRING_GET_OUTBOUND_PORT)
-    private readonly redisStringGetOutPort: RedisStringGetOutPort,
-    @Inject(REDIS_STRING_SET_OUTBOUND_PORT)
-    private readonly redisStringSetOutPort: RedisStringSetOutPort,
-  ) {}
   getHello() {
-    return this.redisStringGetOutPort.execute('nestNewCache');
+    return '0.0.2';
   }
 }

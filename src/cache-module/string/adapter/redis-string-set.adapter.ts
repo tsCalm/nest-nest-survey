@@ -17,7 +17,7 @@ export class RedisStringSetAdapter implements RedisStringSetOutPort {
       params.key,
       params.value,
       'EX',
-      params.expire ?? 10,
+      params.expire ?? 20,
     );
   }
 }

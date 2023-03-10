@@ -1,7 +1,7 @@
 export type RedisStringSetOutPortInputDto = {
   key: string;
   value: string;
-  expire: number;
+  expire?: number;
 };
 export type RedisStringSetOutPortOutputDto = string;
 

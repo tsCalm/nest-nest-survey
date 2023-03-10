@@ -27,9 +27,10 @@ import { SurveyUpdateService } from './service/survey-update.service';
 import { SurveyController } from './survey.ctrl';
 import { Survey } from './survey.entity';
 // import { SurveyService } from './service/survey-findall.service';
+import { CustomCacheModule } from '../cache-module/cache.module';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Survey])],
+  imports: [CustomCacheModule, TypeOrmModule.forFeature([Survey])],
   controllers: [SurveyController],
   providers: [
     {
