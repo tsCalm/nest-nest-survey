@@ -27,7 +27,11 @@ import { SurveyUpdateService } from './service/survey-update.service';
 import { SurveyController } from './survey.ctrl';
 import { Survey } from './survey.entity';
 // import { SurveyService } from './service/survey-findall.service';
-import { CustomCacheModule } from '../cache-module/cache.module';
+import {
+  CustomCacheModule,
+  customProviders,
+} from '../cache-module/cache.module';
+import { RedisCacheInterceptor } from '../common/interceptors/custom-cache.interceptor';
 
 @Module({
   imports: [CustomCacheModule, TypeOrmModule.forFeature([Survey])],
@@ -81,6 +85,8 @@ import { CustomCacheModule } from '../cache-module/cache.module';
       provide: SEARCH_SURVEY_OUTBOUND_PORT,
       useClass: SearchSurveyRepository,
     },
+    RedisCacheInterceptor,
+    ...customProviders,
   ],
 })
 export class SurveyModule {}

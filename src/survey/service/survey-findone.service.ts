@@ -23,8 +23,7 @@ export class SurveyFindOneService implements FindOneSurveyInPort {
   constructor(
     @Inject(REDIS_STRING_SET_OUTBOUND_PORT)
     private readonly _redisStringSet: RedisStringSetOutPort,
-    @Inject(REDIS_STRING_GET_OUTBOUND_PORT)
-    private readonly _redisStringGet: RedisStringGetOutPort,
+
     @Inject(FINDONE_SURVEY_OUTBOUND_PORT)
     private readonly _findOneSurveyOutPort: FindOneSurveyOutPort,
   ) {}
@@ -32,10 +31,6 @@ export class SurveyFindOneService implements FindOneSurveyInPort {
   async execute(
     params: SurveyFindOneInPortInputDto,
   ): Promise<SurveyFindOneInPortOutputDto> {
-    const findedCache = await this._redisStringGet.execute(`survey:${params}`);
-    if (findedCache) {
-      return JSON.parse(findedCache) as SurveyFindOneInPortOutputDto;
-    }
     const findedResult = await this._findOneSurveyOutPort.execute(params);
     const setCache = await this._redisStringSet.execute({
       key: `survey:${params}`,

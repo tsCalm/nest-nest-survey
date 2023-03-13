@@ -11,6 +11,7 @@ import {
   Patch,
   Post,
   Query,
+  UseInterceptors,
 } from '@nestjs/common';
 import {
   ApiExtraModels,
@@ -50,6 +51,7 @@ import {
   UPDATE_SURVEY_INBOUND_PORT,
 } from './in-port/survey-update.ip';
 import { Survey } from './survey.entity';
+import { RedisCacheInterceptor } from '../common/interceptors/custom-cache.interceptor';
 
 @Controller('survey')
 @ApiTags('survey')
@@ -102,6 +104,7 @@ export class SurveyController extends ErrorController {
   }
 
   @Get('find/:id')
+  @UseInterceptors(RedisCacheInterceptor)
   @ApiParam({ name: 'id', required: true })
   @ApiOperation({
     summary: '설문지 상세 요청',
@@ -109,8 +112,11 @@ export class SurveyController extends ErrorController {
   })
   @ResOkObj(Survey)
   async findOne(@Param('id', ParseIntPipe) id: number) {
+    const startTime = new Date().getTime();
     const result = await this._findOneSurveyInPort.execute(id);
     this.isEmpty(result, `id: ${id} 설문지를 찾을 수 없습니다.`);
+    const endTime = new Date().getTime();
+    console.log('db - 걸린시간 : ', (endTime - startTime) / 1000 + 'S');
     return result;
   }
 

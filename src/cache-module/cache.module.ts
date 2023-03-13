@@ -8,7 +8,7 @@ import { REDIS_STRING_GET_OUTBOUND_PORT } from './string/out-port/redis-string-g
 import { REDIS_STRING_SET_OUTBOUND_PORT } from './string/out-port/redis-string-set.op';
 import { redisConfigAsync } from '../config-module/cache.config';
 
-const customProviders = [
+export const customProviders = [
   {
     provide: REDIS_STRING_DEL_OUTBOUND_PORT,
     useClass: RedisStringDelAdapter,
@@ -23,7 +23,7 @@ const customProviders = [
   },
 ];
 @Module({
-  imports: [RedisModule.forRootAsync(redisConfigAsync)],
+  imports: [RedisModule.forRootAsync(redisConfigAsync, true)],
   providers: customProviders,
   exports: customProviders,
 })
