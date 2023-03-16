@@ -1,5 +1,5 @@
 import { setSeederFactory } from 'typeorm-extension';
-import { Question } from '../../question/question.entity';
+import { Question } from '../../modules/question/question.entity';
 
 export default setSeederFactory(Question, (faker) => {
   const question = new Question();

@@ -7,8 +7,8 @@ import {
 } from '@nestjs/common';
 import { PATH_METADATA } from '@nestjs/common/constants';
 import { Reflector } from '@nestjs/core';
-import { REDIS_STRING_GET_OUTBOUND_PORT } from '../../cache-module/string/out-port/redis-string-get.op';
-import { RedisStringGetAdapter } from '../../cache-module/string/adapter/redis-string-get.adapter';
+import { REDIS_STRING_GET_OUTBOUND_PORT } from '../../modules/cache-module/string/out-port/redis-string-get.op';
+import { RedisStringGetAdapter } from '../../modules/cache-module/string/adapter/redis-string-get.adapter';
 
 @Injectable()
 export class RedisCacheInterceptor implements NestInterceptor {

@@ -1,5 +1,5 @@
 import { setSeederFactory } from 'typeorm-extension';
-import { Option } from '../../option/option.entity';
+import { Option } from '../../modules/option/option.entity';
 
 export default setSeederFactory(Option, (faker) => {
   const option = new Option();

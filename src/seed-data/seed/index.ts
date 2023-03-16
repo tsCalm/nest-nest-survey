@@ -1,6 +1,6 @@
-import { Option } from '../../option/option.entity';
-import { Question } from '../../question/question.entity';
-import { Survey } from '../../survey/survey.entity';
+import { Option } from '../../modules/option/option.entity';
+import { Question } from '../../modules/question/question.entity';
+import { Survey } from '../../modules/survey/survey.entity';
 import { DataSource } from 'typeorm';
 import { Seeder, SeederFactoryManager } from 'typeorm-extension';
 
