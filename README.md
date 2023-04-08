@@ -62,3 +62,4 @@ old-nest-survey의 개선 버전
 - 설문지 이름 Full Text Index 적용 후 테스트 [바로가기](https://hssm93.tistory.com/entry/index-select-%ED%85%8C%EC%8A%A4%ED%8A%B8)
 
 - 스웨거 문서 만들기 [바로가기](https://hssm93.tistory.com/entry/NestJs-Swagger)
+- 마이그레이션 적용 [바로가기](https://hssm93.tistory.com/entry/TypeOrm-Migration-%ED%95%99%EC%8A%B5)

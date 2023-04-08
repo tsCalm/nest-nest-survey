@@ -22,6 +22,9 @@ export class Survey extends BaseEntity {
   @ApiProperty()
   description: string;
 
+  @Column({ type: 'int', default: 0 }) // 추가
+  tempTestField: string;
+
   @OneToMany((type) => Question, (question) => question.survey)
   @ApiProperty({ type: [Question] })
   question: Question[];
