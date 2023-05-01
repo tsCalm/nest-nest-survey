@@ -1,3 +1,4 @@
+import { ValidationPipe } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
 import {
@@ -15,6 +16,12 @@ async function bootstrap() {
   const configService = app.get(ConfigService);
   app.enableCors();
   app.useGlobalFilters(new TypeOrmExceptionFilter(), new TypeExceptionFilter());
+  app.useGlobalPipes(
+    new ValidationPipe({
+      transform: true,
+      whitelist: true,
+    }),
+  );
   const config = new DocumentBuilder()
     .setTitle('설문조사 스웨거')
     .setDescription('api 설명서')

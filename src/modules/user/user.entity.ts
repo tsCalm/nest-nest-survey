@@ -17,7 +17,7 @@ export class User extends BaseEntity {
   @Index('user-email')
   email: string;
 
-  @Column({ type: 'varchar', nullable: false, select: false })
+  @Column({ type: 'varchar', length: 128, nullable: false, select: false })
   password: string;
 
   @Index({ fulltext: true })

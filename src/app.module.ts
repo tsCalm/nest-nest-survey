@@ -7,6 +7,7 @@ import { QuestionModule } from './modules/question/question.module';
 import { ResponseModule } from './modules/respondent-res/response.module';
 import { RespondentModule } from './modules/respondent/respondent.module';
 import { SurveyModule } from './modules/survey/survey.module';
+import { UserModule } from './modules/user/user.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { SurveyModule } from './modules/survey/survey.module';
     OptionModule,
     RespondentModule,
     ResponseModule,
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
