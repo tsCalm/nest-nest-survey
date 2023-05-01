@@ -13,8 +13,15 @@ import { ApiProperty } from '@nestjs/swagger';
   name: 'user',
 })
 export class User extends BaseEntity {
+  @Column({ type: 'varchar', nullable: false })
+  @Index('user-email')
+  email: string;
+
+  @Column({ type: 'varchar', nullable: false, select: false })
+  password: string;
+
   @Index({ fulltext: true })
-  @Column({ comment: '유저 이름' })
+  @Column({ type: 'varchar', length: 15, comment: '유저 이름' })
   @ApiProperty()
   name: string;
 
@@ -26,10 +33,9 @@ export class User extends BaseEntity {
   @ApiProperty()
   address_etc: string;
 
-  @Column({ type: 'int', default: 0 }) // 추가
+  @Column({ type: 'datetime', nullable: false }) // 추가
   birth: string;
 
-  @OneToMany((type) => Question, (question) => question.survey)
-  @ApiProperty({ type: [Question] })
-  question: Question[];
+  @Column({ type: 'varchar', length: '11', nullable: false, unique: true }) // 추가
+  tel: string;
 }
