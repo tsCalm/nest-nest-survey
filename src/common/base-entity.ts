@@ -1,6 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import {
   CreateDateColumn,
+  DeleteDateColumn,
   Entity,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
@@ -25,4 +26,8 @@ export abstract class BaseEntity {
   @UpdateDateColumn()
   @ApiProperty()
   updated_at: Date;
+
+  @DeleteDateColumn()
+  @ApiProperty()
+  deleted_at: Date;
 }
